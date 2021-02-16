@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 1부터 100사이 모든 짝수들의 합출력 계산 
+	 1부터 100사이 5배수 합 계산-->
+
+<script type="text/javascript">
+	for(sum=0,sum5=0,i=0; i<101;i++){
+		if(i%2==0){
+			sum=sum+i;
+			
+		}
+		if(i%5==0){
+			sum5=i+sum5;
+			
+		}
+	}
+	document.write("1~100 모든 짝수의 합 : "+sum+"<br>");
+	document.write("1~100 모든 5배수의 합 : "+sum5);
+		
+</script>
+</head>
+<body>
+
+</body>
+</html>

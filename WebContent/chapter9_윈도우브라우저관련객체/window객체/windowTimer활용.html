@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- 
+   1. window 타이머
+      ; 타이머를 작동시키는 메소드를 활용하여 시간에 따라 웹페이지 동적변화를 줄수있다.
+   
+   2. window 타이머 2가지
+         . 1회 호출   : setTimeout() <->   clearTimeout()
+         . 반복 호출   : setInterval() <->   clearInterval()
+         
+         * 이들 메소드를 호출할때는 window생략 할 수 있다.
+         
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+   function myAlert(time) {
+      setTimeout("alert('3초후 경고창이 뜹니다.')",time);
+   }
+</script>
+</head>
+<body>
+   <h3>3초뒤 창닫기</h3>
+   <hr>
+   <a href="javascript:myAlert(3000)">3초후 경고창 출력</a>
+</body>
+</html>

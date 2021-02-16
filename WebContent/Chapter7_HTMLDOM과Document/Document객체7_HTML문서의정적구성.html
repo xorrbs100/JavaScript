@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--  
+	HTML문서의 동적구성
+		: 앞에서는 document.write("<html>~~~</html>")형식으로 문서를 만들었음.
+		이번에는 DOM객체활용 동적생성
+		
+		1) DOM객체를 생성 - document객체의 메소드인 createElement(태그이름)활용
+		2) 속성이나 CSS스타일 추가
+			. 속성추가 : DOM객체.setAtrribute("속성","속성값")
+			. CSS추가 : DOM객체.style.속성="속성값"
+		3) 준비된 DOM객체를 DOM트리에 연결(삽입)
+			방법1. 부모.appendChild(만들어놓은 DOM객체) - 부모의 마지막 자식으로 삽입 
+			방법2. 부모.insertBefore(만들어놓은 DOM객체, 기준자식) - 기준자식 앞에 삽입
+		4) DOM객체 제거
+			: DOM트리에서 제거되면 브라우저 화면이 즉각 갱신되고 사라진다.
+				다시, 임의의 위치에 부착할 수도 있다.
+			부모.removeChild(떼어내고자 하는 자식객체) - 부모로부터 자식객체제거.			
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML문서의 동적구성</title>
+<script type="text/javascript">
+	
+	function addDOM() {
+		
+		var newDiv= document.createElement("div");		//div태그생성
+		newDiv.setAttribute("id","myDiv");		//속성추가
+		newDiv.style.backgroundColor="orange";	//CSS추가
+		newDiv.innerHTML="새로 생성된 Div입니다.";	//컨텐츠추가
+		//div준비끝 -> 트리에연결
+		var p=document.getElementById("p");		//붙이고 싶은 부모객체 알아오기
+		p.appendChild(newDiv);					//부모에 자식연결
+		
+		
+	}
+	function removeDOM() {
+
+		//떼어낼자식객체알아오기
+		var myDiv = document.getElementById("myDiv");
+		//자식객체로 부모객체알아오기
+		var parent = myDiv.parentElement;
+		//자식제거
+		parent.removeChild(myDiv);
+		
+	}
+</script>
+</head>
+<body>
+	<p id="p">HTML문서의 동적구성</p><br>
+	<button type="button" onclick="addDOM()">추가</button>
+	<button type="button" onclick="removeDOM()">제거</button>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--  
+	1. 키 이벤트 
+		. onkeydown, onkeypress, onkeyup...
+		. onreset : <input type="reset"> 폼을 초기화 할때 호출
+		. onsubmit : <input type="submit"> 폼을 서버로 전송할 때 호출 
+		
+	2. 키 이벤트 객체의 프로퍼티
+		
+			프로퍼티				설명
+		--------------------------------------
+			code			눌러진 키의 이름 저장
+			key				눌러진 키의 문자열 저장, 키 판별에 사용
+			altKey			<Alt>키가 눌러진 상태이면 true
+			ctrlKey			<ctrl>		"
+			shiftKey		<shift> 	"
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>키 이벤트</title>
+<script type="text/javascript">
+	
+	function whatKeyDown(e) {
+		var str = "";
+		var div = document.getElementById("div");
+		div.innerHTML = "";
+		str+="e.key= "+e.key+"<br>";
+		str+="e.code= "+e.code+"<br>";
+		div.innerHTML=str;
+	}
+
+</script>
+</head>
+<body>
+	<h3>키 리스너와 키 이벤트 객체의 프로퍼티</h3>
+	<hr>
+	텍스트 창에 키를 눌러 보세요. alt,shift,ctrl 키도 가능 합니다.
+	<input type="text" id="text" onkeydown="whatKeyDown(event)">
+	<div id="div" style="background-color: skyblue; width: 250px; height: 50px;"></div>
+</body>
+</html>

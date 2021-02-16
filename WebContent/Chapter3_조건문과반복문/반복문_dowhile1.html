@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>do-while문으로 0~n까지 합</h3>
+	<hr>
+	<script type="text/javascript">
+	var n = Number(prompt("0보다 큰 정수를 입력해주세요.",""))
+	var i=0, sum=0;
+		do {
+			sum+=i;
+			i++;
+			if(i<6){
+				document.write("<h"+i+">자바스크립트</h"+i+">")
+			}
+		} while (i<=n);
+		document.write("0에서 "+n+"까지의 합은"+sum);
+	
+	</script>
+	
+	
+</body>
+</html>

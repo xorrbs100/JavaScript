@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문자열 분할</title>
+</head>
+<body>
+	<h3>문자열 분할</h3>
+	<hr>
+	<script type="text/javascript">
+		var text= prompt("&을 구분자로 포함하는 문자열을 입력해 주세요","");
+		//텍스트를 구분자로 구분하면 배열로 반환한다
+		var arr = text.split("&");
+		for(i=0;i<arr.length;i++){
+			document.write(arr[i]+"<br>");
+			
+		}
+		
+	</script>
+</body>
+</html>

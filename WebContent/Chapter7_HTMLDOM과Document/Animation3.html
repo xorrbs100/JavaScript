@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--  
+	querySelector()
+		. 인수로 지정된 CSS선택자를 가장 먼저 만족하는 노드객체를 탐색해서 반환
+			- getElementById와 특정한 노드객체를 반환한다는 의미에서 같다.
+			
+	querySelectorAll()
+		. 모든 노드객체들을 탐색해서 노드리스트(컬렉션)객체로 반환
+			for, for~in문과 함께 사용한다.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	
+<script type="text/javascript">
+	
+	
+	function movingImages() {
+		var parent = document.getElementById("p1");
+		var imgTags = document.querySelectorAll("img");	//img태그를 모두호출 컬렉션으로 저장
+		var movingImage = imgTags[0];	//첫번째
+		movingImage.parentNode.removeChild(movingImage); //제거하고 
+		
+		parent.appendChild(movingImage);	//다시추가 => 처음껄떼서 마지막으로 붙임
+		
+	}
+	
+</script>
+</head>
+<body>
+	<h3>웹브라우저 이미지 이동</h3>
+	<hr>
+	<div id="p1">
+		<img src="../img/메뚜기1.png" width="150px" height="150">
+		<img src="../img/메뚜기2.png" width="150px" height="150">
+		<img src="../img/메뚜기3.png" width="150px" height="150">
+		<img src="../img/메뚜기4.png" width="150px" height="150">
+		<img src="../img/메뚜기5.png" width="150px" height="150">
+		<img src="../img/메뚜기6.png" width="150px" height="150">
+	</div>
+	<button type="button" onclick="setInterval(movingImages,200)">Start</button>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--  
+	웹페이지를 로드하자마자 크롬 브라우저인지를 판단하여 alert()로 출력하는
+	웹 페이지 작성
+
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>구글크롬브라우저감별</title>
+<script type="text/javascript">
+	
+	function check() {
+		 var a= navigator.userAgent;
+		 
+		 if(/chrome/i.test(a)){
+			 alert("크롬입니다")
+		 }
+		 else alert("크롬이아닙니다")
+	}
+
+</script>
+</head>
+<body onload="check()">
+	<h3>구글크롬브라우저감별</h3>
+	<hr>
+	<p>
+	웹브라우저에 따라 지원되는 자바스크립트들이 다를 수 있다.
+	DOM의 기능은 표준화되어 있어 동일하지만, BOM객체들은
+	많이 다릅니다. 모두 표준화 되었으면 하지만 독창적인 기능으로
+	승부하고자 하는 기업들의 특성이 있어 쉽지 않을것 같다.</p>
+</body>
+</html>

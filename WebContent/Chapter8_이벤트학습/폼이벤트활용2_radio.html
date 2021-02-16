@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--  
+   라디오 버튼 
+      - 라디오 객체는 <input type = "radio"> 로 만들어진 DOM객체이다. 
+      - 라디오 버튼 그룹을 만들 때 name의 속성 값이 같아야 라디오 버튼 그룹이 된다. 
+         (즉, 그룹을 만드는 것은 name을 동일하게 지정하는 것이다. )
+         
+      - 어떤 것이 체크되어있는지
+         - 객체.checked  = true;
+
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function findChecked() {
+		var found = null;
+		//라디오그룹 가져오기
+		var kcity = document.getElementsByName("city"); 	//*
+		
+		//체크된 객체 찾기
+		for(i=0; i<kcity.length; i++){
+			if(kcity[i].checked==true){		//*
+				found=kcity[i];
+				
+			}
+		}
+		//찾은것 가지고 처리하기
+		if(found !=null){
+			alert(found.value+"이 선택되었습니다.");
+			
+		}else{
+			alert("선택된 것이 없습니다.");
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<h3>버튼을 클릭하면 선택된 라디오 버튼의 value를 출력합니다.</h3>
+	<hr>
+	<form action="">
+		<input type="radio" name="city" value="seoul" checked>서울
+		<input type="radio" name="city" value="busan">부산
+		<input type="radio" name="city" value="chunchen">춘천
+		<input type="button" value="find" onclick="findChecked()">
+	</form>
+
+</body>
+</html>

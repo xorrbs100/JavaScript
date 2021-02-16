@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--  
+	이미지 객체생성
+		: 캔버스에 이미지를 그리기 위해서는 이미지를 담을 이미지 객체가 필요하다.
+		1) 이미지 객체생성
+			 var img = new Image();
+			 
+		2) 이미지 로딩과 onload
+			: 파일로 부터 이미지를 로딩시키기 위해서는 Image객체에 
+			  src프로퍼티를 이용해서 구현한다.
+			  img.src = "test.png";		이미지 로딩시작
+				>>그래서, 로딩시작전에 리스너에 로딩시에 해야할 일이 미리 정의가 되어있어야 한다.
+		3) 이미지 그리기
+			: drowImage()메소드를 이용하여 이미지를 그린다.
+			
+			가. 원본 그대로 그리기
+				drawImage(이미지소스, x, y)
+				
+			나. 크기조절하여 그리기
+				drawImage(이미지소스, x,y, dWidth, dHeight)
+				
+			다. 특정부분을 잘라서 크기를 조절할때
+				drawImage(이미지소스, sx, sy, sWidth, sHeight, dx,dy, dWidth, dHeight)
+	
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>(20,20)에 100*200 크기로 그리기</h3>
+	<hr>
+	<canvas id="myCanvas" style="background-color: gray; width: 300; height: 250;">
+			
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById("myCanvas");
+		var context = canvas.getContext("2d");
+		//이미지그리기
+		var img = new Image();
+		img.onload=function(){
+			context.drawImage(img, 20, 20, 100, 100);
+		}
+		img.src="../img/스폰지밥.png";
+	</script>
+</body>
+</html>

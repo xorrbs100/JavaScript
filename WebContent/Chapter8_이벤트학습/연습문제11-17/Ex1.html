@@ -1,0 +1,93 @@
+<!-- <!DOCTYPE html>
+
+	. 10행 10열의 셀을 가진 표를 만든다.
+	. 랜덤하게 어느 셀에 이미지를 출력시킨다.
+	. 이미지를 클릭하면 다른 셀을 랜덤하게 선택해서 이미지를 출력한다.
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	table{
+	border: 1px solid blue;
+	border-collapse:collapse;
+	}
+	td{border: 1px solid blue;
+		width: 50px; height: 50px;
+		padding: 0px;
+	}
+</style>
+<script type="text/javascript">
+	
+	
+	function changeImg() {
+		var imgNumber = document.getElementsByTagName("img")  
+		var src = "../../img/스폰지밥.png"
+		var i = Math.floor(Math.random*10);
+		imgNumber[i].src=src;
+	
+	}
+
+</script>
+</head>
+<body>
+	<table id="table" onclick=changeImg();>
+		<tr><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src="">				
+		<tr><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src="">
+		<tr><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src="">
+		<tr><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src="">
+		<tr><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src="">
+		<tr><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src="">
+		<tr><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src="">
+		<tr><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src="">
+		<tr><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src="">
+		<tr><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src=""><td><img src="">
+		
+	</table>
+</body>
+</html> -->
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+   table {
+      border: 1px solid blue;
+      border-collapse: collapse;
+   }
+   td {
+      border: 1px solid blue;
+      width: 50px; height: 50px;
+      padding: 0px;
+   }
+</style>
+<script type="text/javascript">
+   
+   function sel(obj) {
+      var ranx = Math.floor(Math.random()*10);
+      var rany = Math.floor(Math.random()*10);
+      var selb = document.getElementById(ranx+","+rany);
+      selb.src = "../../img/스폰지밥.png";
+      obj.removeEventListener("onclick", sel);
+      obj.src = '';
+   }   
+   document.write("<h3>마우스 클릭 연습</h3><hr>");
+   
+      document.write("<table>");
+      for(i=0;i<10;i++){
+         document.write("<tr>");
+         for(j=0;j<10;j++){
+            document.write("<td><img id='"+i+","+j+"' src ='' onclick='sel(this)'></td>");
+         }
+      }
+      document.write("</table>");
+      
+   </script>
+
+</head>
+<body onload="sel()">
+</body>
+</html>

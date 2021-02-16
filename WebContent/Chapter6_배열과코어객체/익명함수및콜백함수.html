@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- 
+	익명함수
+		- 함수의 이름이 없는 함수
+		- 자바스크립트는 함수를 객체변수에 저장해서 사용할 수 있다.
+			이때, 변수(a)를 함수형 변수라고 부른다.
+		
+			예) var f1 = function name (a,b){return a*b};
+			. 함수형 변수에 함수를 저장해서 활용가능하다.
+			. 이때 function의 이름은 생략될 수 있다.
+			 > 이러한 함수를 익명함수라고 한다.
+	콜백함수/클로저(closur)
+		- 특정 함수의 인수 또는 반환값으로 사용할 수도 있다.
+			예) var x = f1(4,3);
+				- 함수를 호출해서 반환값으로 사용 >> 이렇게 반환값으로만 사용하는 함수를 클로저라고 한다.
+				
+			예) window.onload=function(){alert'(call me baby');};
+				- 어떤 함수의 인수로만 사용되는 함수
+				> 이렇게 인수로만 사용하는 함수를 "콜백함수"라고 한다.
+		-> 콜백함수와 익명함수들은 이벤트처리함수 또는 애니메이션기능을 구현하는 함수들을
+			작성할때 많이 사용된다.
+ -->
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//콜백함수
+	function f1(f2,n) {
+		document.write("콜백함수를 "+ n+"번 호출함!<br>");
+		for(i=0;i<n;i++){
+			f2();
+		}
+	}
+	var f3 = function() {
+		document.write("Welcome to HTML5! <br>");
+	}
+	//f1()함수호출
+	f1(f3, 5);	//콜백함수f3
+	//익명함수
+	document.write("<hr>");
+	f1(function() {
+		document.write("Welcome to JavaScript!<br>");
+	},5);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

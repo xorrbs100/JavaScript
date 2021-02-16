@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//1. 생성자함수 생성
+	function Account(owner,code,balance) {
+		//2.프로퍼티생성: this붙인다.
+		this.owner=owner;
+		this.code=code;
+		this.balance=balance;
+		//3. 메소드를 만든다 - this붙인다.
+		this.inquiry= function() {return this.balance;}
+		this.deposit= function(money) {this.balance+=money;}
+		this.withdraw= function(money) {this.balance-=money;}
+	}
+
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		var a1 = new Account("홍길동", "1111", 10000);
+		document.write("예금주 : "+ a1.owner+"<br>");
+		document.write("통장번호 : "+ a1.code+"<br>");
+		document.write("잔액 : "+ a1.balance+"<br><br>");
+		
+		a1.deposit(10000);
+		document.write("입금후잔금 : "+a1.inquiry()+"<br>");
+		
+		a1.withdraw(5000);
+		document.write("출금후잔금 : "+a1.inquiry()+"<br>"+"<br>");
+	</script>
+	
+</body>
+</html>

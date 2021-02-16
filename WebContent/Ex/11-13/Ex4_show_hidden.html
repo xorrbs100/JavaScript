@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>show_hidden버튼</title>
+<style type="text/css">
+	span{
+		visibility: hidden;
+		color: blue;
+		
+	}
+</style>
+<script type="text/javascript">
+	
+	
+	function show() {
+		//span태그를 가져와서 objArray생성
+		objArray = document.getElementsByTagName("span");
+		//for문이용 배열의 객체 하나하나씩을 가져와 보이거나 안보이거나 설정
+		for(i=0;i<objArray.length;i++){
+			var obj=objArray[i];
+			var style = window.getComputedStyle(obj);		//객체 스타일값 받아옴
+			var v = style.getPropertyValue("visibility");	//스타일에서 비지블값 받아옴
+			/* var v = objArray[i].style.getPropertyValue("visibility"); */
+			if(v=="hidden"){
+				obj.style.visibility="visible";
+				
+			}else obj.style.visibility="hidden";
+		}
+	}
+
+</script>
+</head>
+<body>
+	<h3>다음 빈 곳에 숨은 단어를 채우시오!
+	<button type="button" onclick="show()">show/hidden</button>
+	</h3>
+	<hr>
+	<ul>
+		<li>I (<span>love</span>) you.
+		<li>CSS is Cascading (<span>Style</span>) Sheet.
+		<li>응답하라 (<span>1988</span>).
+	
+	</ul>
+</body>
+</html>

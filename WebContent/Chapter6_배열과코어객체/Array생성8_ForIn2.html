@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>for~in을 활용한 배열참조</h3>
+	<hr>
+	<script type="text/javascript">
+		var score = [0,10,20,30,40];
+		
+		score[0]=5;	// 0->5로 재설정
+		score["1"]=15;	//새로운 인덱스로 15가 추가될 것 같다	->숫자형 문자는 숫자로 인식해서 인덱스로 처리한다
+		score['two']=25;	// 새로운 인덱스로 25가 추가 될 것이다
+		score[7]=55;	// 인덱스로 값추가
+		
+		//기존for문
+		for(i=0;i<score.length;i++){
+			document.write(i+"번째방 값 : "+score[i]+"<br>");
+			
+		}
+		document.write("<hr>");
+		//for~in 방식
+		
+		for(var key in score){		//undefined는 출력안됨
+			
+			document.write("score["+key+"]="+score[key]+" ");
+			
+		}
+		
+		
+	
+	</script>
+</body>
+</html>

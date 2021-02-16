@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--  
+	웹페이지 스크롤
+		: window객체를 이용하면 웹페이지를 상하좌우 스크롤 할 수 있다.
+		
+		- scrollBy(), scrollTo()
+		
+		* 스크롤 업과 다운에서 스크롤바를 내리면 웹페이지가 위로 올라간다(반대)
+
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function startScroll(interval) {
+		setInterval("autoScroll()",interval);
+		
+	}
+	function autoScroll() {
+		window.scrollBy(0, 10);
+	}
+
+</script>
+</head>
+<body onload="startScroll(1000)" style="background-color: yellow;">
+	<h3>자동 스크롤 페이지</h3>
+	<p>스크롤바가 필요한 상태의 작은 창으로 해 놓고 실행해보세요</p>
+	<hr>
+	<h3>꿈 길  -이동순</h3>
+	<pre>
+	꿈길에
+	발자취가 있다면
+	님의 집 창밖
+	그 돌계단 길이 이미 오래 전에
+	모래가 되고 말았을 거예요
+	
+	하지만
+	그 꿈길에서 자취 없다 하니
+	나는 그것이 정말 서러워요
+	
+	이 밤도
+	나는 님의 집 창밖
+	그 돌계단 위에 홀로 서서
+	혹시라도 님의 목소리가 들려올까
+	고개 숙이고 엿들어요
+	</pre>
+	
+</body>
+</html>

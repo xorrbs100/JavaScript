@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- 
+	자바스크립트
+		. 객체의 구성 : 속성(프로퍼티) + 메소드
+			- 속성: 객체를 표현하기 위한 데이터.
+			- 메소드 : 데이터를 동작하는 규칙/방법을 메소드라 한다.
+			
+		. 객체의 종류
+			1) 사용자 객체
+			2) 코어객체	- 기본객체 Array, Date, String, Math, 타입등이 있고 ,
+						- 웹페이지나 웹서버 응용프로그램 어디서나 사용할 수 있다.
+			3) HTML DOM객체
+					- HTML태그들을 브라우저가 하나씩 객체화 한것들.
+					- HTML 페이지의 내용과 모양을 제어하기 위해 사용되는 객체들이다.
+			4) 브루아저 객체
+					-브라우저의 종류나 스크린의 크기정보를 제공하거나
+					- 새로운 윈도우를 생성하는등
+					- 브라우저와 관련된 객체들로써 BOM이라 불린다
+					
+		. 용어정의
+			- 객체생성 : var 레퍼런스변수명 = new 프로토타입명();
+			
+			- 프로토타입이란?
+				. 객체의 모양을 가진 틀과 같다.
+				. 프로토타입 = 프로퍼티(속성) + 메소드로 구성된다.
+				. new 연산자는 프로토타입을 찍어내도록 명령하는 연산자 이다.
+				. 프로토타입은 함수로 작성된다.
+				. 프로토타입을 만들때 사용하는 함수를 생성자함수라고 부른다.
+		. 객체의 구현방법 3가지의 경우
+			1) Object()를 생성하여 프로퍼티와 메소드를 추가해나가는 방식
+			2) 리터럴 표기법으로 생성하는 방식
+			3) 프로토타입으로 생성하는 방식
+		
+		. 첫번째 방식 : new Object()를 이용한 방식
+			(1) 생성
+			var score = new Object();
+			-------------------------
+			
+			(2) 추가
+				score.name="홍길동";	//프로퍼티추가
+				score.hakbun="0001";
+			-----------------------
+			function성적관리(){}		
+		* 자바스크립트 함수의 특징
+			1. 느슨한 검사:
+				. 함수를 호출할때 인수들의 자료형과 개수등을 엄격하게 확인하지 않는다.
+				. 호출할때 인수값의 개수가 부족하면 순차적으로 대응하고 남겨진 나머지 인수들은 undefined형으로 처리하고 초과된인수값들은 무시한다.
+			2. 함수 선언위치와 사용위치의 독립성
+				. 자바스크립트는 실행될 때, 초기화된 변수 정의들을 제외한
+				   모든 전역변수들과 함수의 정의를 HTML문서의 앞부분으로 자동으로 이동시킨후 실행한다. 이를 function hoisting 이라한다.
+		
+		Object() 활용객체 만들기
+			. =로 객체변수에 속성=값, 변수=함수로 정의
+			. 함수는 내부에서 외부에서 어디에서든 정의해도 상관없다.
+			. 함수를 내부에서 정의할 경우, 함수명은 생략되어도, 객체변수명과 달라도 상관없다.
+			. 함수를 외부에서 정의하고 내부에서 대입할 경우 함수명만 기재하고 괄호는 생략된다.
+			. 함수안에서 변수호출은 모두 this를 붙여 객체의 변수로 지정해둔다.
+				객체명으로 해도 되겟지만 이함수를 다른곳에서 활용할 수 있으므로 this로 함이 적절하다.	
+						
+ -->
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//사용할 함수정의
+	function inquiry() {		//잔금조회함수
+		return this.balance;
+		
+	}
+	function deposit(money) {	// 입금함수
+		this.balance+=money;
+	}
+	function withdraw(money) {
+		this.balance=this.balance-money;
+		return money;
+	}
+	
+	//객체만들기
+	//1.Object
+	var account = new Object();
+	
+	//2. 프로퍼티추가
+	account.owner= "홍길동";
+	account.code = "1111";
+	account.balance=35000;
+	
+	//3 메소드추가 - 함수명과 메소드명은 동일한 이름으로 작성한다.
+	account.inquiry=inquiry; //함수의 이름으로 객체의 메소드이름을 초기화한다.
+	account.deposit=deposit;
+	account.withdraw=withdraw;
+	
+	
+</script>
+</head>
+<body>
+	<h3>new Object()로 사용자 객체 만들기</h3>
+	<hr>
+	<script type="text/javascript">
+		//객체활용
+		//프로퍼티활용
+		document.write("account프로퍼티는..<br>");
+		document.write("예 금 주: "+account.owner+"<br>");
+		document.write("계좌번호: "+account.code+"<br>");
+		document.write("잔금 : "+account.balance+"<br>"+"<br>");
+		
+		//메소드활용
+		account.deposit(10000);
+		document.write("입금후잔금 : "+account.inquiry()+"<br>"+"<br>");
+		
+		account.withdraw(5000);
+		document.write("출금후잔금 : "+account.inquiry()+"<br>"+"<br>");
+	</script>
+	
+</body>
+</html>
+
+
+
+
+
+

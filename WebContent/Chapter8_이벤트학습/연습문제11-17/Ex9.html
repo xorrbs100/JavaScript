@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 	
+	function em(obj) {
+		obj.style.fontSize="2em";
+	}
+	function size(obj) {
+		obj.style.fontSize="1em"
+	}
+	 */
+	 var prev=null;
+	 window.ondblclick=function(e) {
+		if(e.target.tagName.toLowerCase()!="li"){
+			return;
+		}
+		else {
+			e.target.style.fontSize="2em";
+		}
+		if(prev!=null){
+			prev.style.fontSize="1em";
+		}
+		prev=e.target;
+	}
+
+</script>
+</head>
+<body>
+	<h3>아이템을 클릭하면 2배로 크기증가</h3>
+	<hr>
+	<p>겨울방학때 하고 싶은 것들</p>
+	<ul>
+		<li>스키타기
+		<li>겨울캠핑하기
+		<li>온천가기
+		<li>공부만하기
+	</ul>
+	
+	
+</body>
+</html>

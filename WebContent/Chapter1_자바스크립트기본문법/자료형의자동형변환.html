@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- 
+	변수는
+		. 사용하는 순간 생성되고
+		. 자료를 대입하는 순간 자료형도 결정된다.
+		. 숫자와 문자가 연결되면 문자열로 자동변환된다.
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var myVar;
+
+	document.write("출력값 : "+myVar+"<br>");	//초기값 미설정일때 undifined
+	
+	myVar="홍길동";
+	document.write("문자열 : "+myVar+ "<br>");
+	
+	myVar=25;				//자바스크립트에서는 대입하는순간 자료형도 결정된다
+	document.write("정수: "+myVar+"<br>");
+	
+	myvar=(25+"살");	//정수+문자 = 문자타입
+	document.write("정수+문자: "+myVar+"<br>");
+
+</script>
+</head>
+<body>
+	
+</body>
+</html>

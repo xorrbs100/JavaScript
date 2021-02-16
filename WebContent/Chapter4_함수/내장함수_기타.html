@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- 
+	eval(): 수식이나 자바스크립트의 문장을 문자열 형태로 전달받아 연산후 결과를 리턴한다.
+		- 여러가지 위험성을 내포하고 있어서 사용을 권장하진 않음.
+		- 그럼에도 불구하고, 문자열로 구성된 산술식을 쉽게 계산할 수 있기때문에 많이 사용된다.
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function innerfunc() {
+		var res=eval("2*3+4*6");
+		document.write("eval(\"2*3+4*6\")는 " +res + " <br>");
+		
+		var m = parseInt("32");
+		document.write("parseInt(\"32\")는"+m +"<br>");
+		
+		var n = parseInt("0x32");
+		document.write("parseInt(\"0x32\")는"+n+"<br>");
+		n = parseInt("hello");
+		if(isNaN(n)){
+			document.write("hellow는 숫자가 아닙니다.");
+		}
+	}
+</script>
+</head>
+<body>
+		<h3>eval(), parseInt(), isNaN()</h3>
+		<hr>
+		<script type="text/javascript">
+			innerfunc();
+		</script>
+</body>
+</html>

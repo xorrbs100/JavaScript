@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--  
+	.write() 사용시 주의점
+		- document객체가 닫히고 난 다음에는 HTML텍스트를 추가하기 위해 write()를 사용하지 못한다.
+		- document객체가 닫히고 난 다음에 write()가 실행되면, 브라우저는 현재의 document에 담긴
+			모든 문서내용을 다 지우고, 새로운 document를 연다.
+			즉, HTML문서가 완전히 출력되고 난 다음에 write()가 실행되면 새 문서가 작성되는 결과가 되는 것이다.
+			
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>write를 잘못 사용한 사례</title>
+</head>
+<body onclick="document.write('<h3>클릭되었습니다. onClick으로 추가된 write()에 있는 HTML텍스트가 추가됩니다.</h3>')">
+	<h3>write()를 잘못 사용하는 사례</h3>
+	<hr>
+	<p>웹 브라우저의 바탕 아무 곳이나 더블 클릭해 보세요.</p>
+	<p></p>
+</body>
+</html>

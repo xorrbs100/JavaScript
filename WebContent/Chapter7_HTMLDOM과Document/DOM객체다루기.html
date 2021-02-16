@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- 
+	객체 다루기
+		. id로 객체찾고 -> 객체의 속성을 변경지정할 수 있다.
+		. 속성을 지정할때
+			- 스타일시트(CSS)의 프로퍼티는 : background-color되어 있었지만
+			- style객체는				: backgroundColor와 같이 하이픈 없이 사용한다.
+		
+		. 객체읽기
+			1) var span= document. getElementById("찾는 id")
+			2) var color=span.style.color' >>
+			
+			(방법2)
+			1) var style = window.getComputedStyle(셀렉터);
+			2) var value = style.getPropertyValue("color"); 컬러의 속성 value
+			
+		. 설정 - 아래참조
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p id="first">자바 스크립트가 제일 재밌어요</p>
+	<p id="second">안녕하세요<span id="third" style="color: red;">자바스크립트</span>입니다.</p>
+	
+	<script type="text/javascript">
+		
+		//CSS스타일 설정
+		//방법1 - 기본
+		var p1 = document.getElementById("first");
+		p1.style.color="red";
+		p1.style.backgroundColor="yellow";
+		
+		//방법2 - 한줄로
+		document.getElementById("second").style.color="blue"; //방법 1을 한줄로표현
+		
+		//방법3 - cssText = "스타일시트 적용폼으로 입력"
+		var p2=document.getElementById("second");
+		p2.style.cssText="background-color: green";
+		
+		//스타일 프로퍼티로 읽어오기
+		//방법1-id로 읽기
+		var span= document.getElementById("third");
+		var color= span.style.color;
+		document.write("방법 1 : span태그의 스타일 값은?"+color+"<br>");
+		//방법2 - 셀렉터로 읽어오기
+		var style = window.getComputedStyle(span);
+		var value = style.getPropertyValue("color");
+		document.write("방법 2 : span태그의 style 값은 : "+value+"<br>");
+		//박스의 유형, 테두리, 여백변경
+		p2.style.display = "block";
+		p2.style.width = "15em";
+		p2.style.border = "3px dotted magenta";
+		p2.style.margin = "20px";
+		
+	
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

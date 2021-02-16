@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- 
+	for~in문
+		: 배열이나 객체는 여러 배열원소 값 또는 속성값들의 집합으로 표현되는 자료이며,
+			이때 모든 자료값들을 배열 인덱스들 또는 속성명들을 이용해서 개별적으로 참조 하기는
+			불편하다. 그래서 for~in문을 제공해서 빠짐없이 조회가능하게 해준다.
+			
+			
+		.문법
+			for(var name(key) in 배열/객체변수){
+				배열/객체변수[key];
+			}
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var season = new Array("봄","여름","가을","겨울");
+	season['mar']="춘곤기";
+	season['sep']="환절기";
+	document.write("(1)for문 출력 : ");
+	for(i=0;i<season.length;i++){
+		document.write(season[i]+",");	
+	}
+	document.write("<hr>");
+	document.write("(2)for~in문 출력 : ");
+	for(var key in season){		//for ~in 문 활용
+		document.write(season[key]+"  ");		//인덱스를 key로
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>Date 객체로 현재 시간 알아내기</h3>
+	<hr>
+	<script type="text/javascript">
+		var now = new Date();
+		
+		document.write("현재시간 : "+now.getFullYear()+"년도<br>");
+		document.write(now.getMonth()+1+"월<br>");
+		document.write(now.getDate()+"일<br>");
+		document.write(now.getDay()+"요일<br>");
+		document.write(now.getHours()+"시<br>");
+		document.write(now.getMinutes()+"분<br>");
+		document.write(now.getSeconds()+"초<br>");
+		document.write(now.getMilliseconds()+"밀리초<br><hr>");
+		
+		document.write(now.toUTCString()+"<br>");	//표준시
+		document.write(now.toLocaleString()+"<br><hr>");
+		
+		//시간을 설정해서 객체를 생성해보자
+		var next = new Date(2020,10,9,15,8,15);
+		
+		document.write("next.toLocaleString(): "+ next.toLocaleString()+"<br>");
+		document.write("next.UTCString(): "+ next.toUTCString());
+		
+	</script>
+</body>
+</html>

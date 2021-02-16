@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+   body {
+      background-image: url("../../img/눈배경.jpg");
+      background-size: 100%;
+      background-repeat: no-repeat;
+   }
+   div.snow {
+      font-size: 30px;
+      color: white;
+      position: absolute;
+      padding: 0px;
+      margin: 0px;
+   }
+   
+</style>
+<script type="text/javascript">
+   //필요한것 준비
+   var snow = new Array(30);         //눈 - div에 *로 표현
+   var x = new Array(30);            //x좌표 - 스크린 넓이 랜덤값으로
+   var y = new Array(30);            //y좌표 - 스크린 높이 랜덤값으로
+   
+   var speedOfFall = new Array(30);   //내려오는속도
+   
+   //좌우로 흔들리는 표현
+   var speedOfWind = new Array(30);   //기본값
+   var step = new Array(30);         //기본값 + step으로
+   
+   makeSnow();
+   
+   //눈 만들기 - 초기값
+   function makeSnow() {
+      //window.innerHeight : 현재 윈도우의 브라우저 영역의 높이
+      //           Width : 현재 윈도우의 브라우저 영역의 넓이
+      for(var i=0; i<30; i++){
+         //좌표값
+         x[i] = Math.floor(Math.random() * window.innerWidth);
+         y[i] = Math.floor(Math.random() * window.innerHeight);
+         
+         //낙하속도
+         speedOfFall[i] = Math.random() * 2+2;   //수치 변경해보기
+         
+         //흔들림의 효과
+         speedOfWind[i] = 1;      //초기값 상수로 줬음
+         step[i] = Math.random() * 0.1+0.05;      //흔들림의 랜덤한 정도표현
+         
+         //눈을 출력할 공간
+         var divtag = "<div class='snow' id='snowobj"+i+"' style='top:"+y[i]+"px; left:"+x[i]+"px;'>*</div>";
+         document.write(divtag);
+         
+         //<div> DOM객체 저장
+         snow[i] = document.getElementById("snowobj"+i);
+      }
+   }
+   
+   //눈내리는 처리
+   function fall() {
+      for(i=0; i<30; i++){
+         //첫번째 화면 다음의 좌표
+         y[i] += speedOfFall[i];      //눈송이의 다음 y좌표
+         x[i] += Math.cos(speedOfWind[i]);   //흔들림의 정도
+         
+         //화면 밖으로 벗어날 때 - 땅에 떨어졌을때.
+         if(y[i] >= window.innerHeight-60){
+            y[i] = 0;
+            x[i] = Math.floor(Math.random() * window.innerWidth);
+            speedOfFall[i] = Math.random() * 2+2;
+         }
+         //화면에 위치적용
+         snow[i].style.top = y[i]+"px";
+         snow[i].style.left = x[i]+"px";
+         
+         //흔들림보정
+         speedOfWind[i] += step[i];
+      }
+      setTimeout("fall()",50);
+   }
+   
+</script>
+</head>
+<body onload="fall()">
+
+</body>
+</html>

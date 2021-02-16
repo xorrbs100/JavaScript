@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>What Can JavaScript Do?</h3>
+	<button type="button" id="b1" onclick="changeOn();">사진1</button>
+	<img id="light" src="../img/스폰지밥.png" style="width: 70px;">
+	<button type="button" id="b2" onclick="changeOff();">사진2</button>
+	
+	<script type="text/javascript">
+		function changeOn() {
+			var tag1 = document.getElementById("light");
+			tag1.src="../img/뚱이.png";
+		}
+		function changeOff() {
+			var tag1 = document.getElementById("light")
+			tag1.src="../img/스폰지밥.png";
+		}
+	</script>
+</body>
+</html>

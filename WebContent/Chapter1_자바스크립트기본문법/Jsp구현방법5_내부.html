@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	document.write("Welcome to JavaScript<br>");
+	document.write("Enjoy JavaScript Programming!");
+	
+	var subject1 = "Welcome to JavaScript<br>";	/* var=변수선언 */
+	var subject2 = "Enjoy JavaScript Programming!";
+	function welcome(target) {
+		document.write(target);
+	}
+	
+</script>
+</head>
+<body>
+	<h3>내부 자바스크립 작성</h3>
+	<script type="text/javascript">		/* html body에도 스크립코드 작성가능 */
+		welcome(subject1);
+		welcome(subject2);
+	</script>
+</body>
+</html>

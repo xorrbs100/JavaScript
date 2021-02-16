@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- 카드 클릭하면 다음거보이기 -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{position: absolute;}
+	img{position: absolute;}
+</style>
+
+<script type="text/javascript">
+
+	//다른방법
+/* 	function shuffle() {
+		var parent=document.getElementById("pane");
+		var imgTags = document.querySelectorAll("img");
+		var movingImage = imgTags[0];	//첫번째 
+		movingImage.parentNode.removeChild(movingImage);
+		parent.appendChild(movingImage);
+
+	} */
+
+</script>
+</head>
+<body>
+	<h3>Shuffle</h3>
+	<hr>
+<!-- 	<div id="pane"  onclick="shuffle()"> -->
+	<div>
+		<img src="../../img/A.png" width="100" height="140">
+		<img src="../../img/2.png" width="100" height="140">
+		<img src="../../img/3.png" width="100" height="140">
+		<img src="../../img/7.png" width="100" height="140">
+	</div>
+	
+	<script type="text/javascript">
+	//img
+	var imgArray=document.getElementsByTagName("img");
+	for(i=0;i<imgArray.length;i++){
+		var obj=imgArray[i];
+		obj.style.left="10px";	//겹치게배치
+		obj.style.top="20px";
+		//Z-index를 이용해서 우선순위 조정
+		obj.style.zIndex=i;	//0,1,2,3
+		//이벤트 리스너 부착
+		obj.onclick=shuffle; 	//함수명에()생략
+	}
+	function shuffle() {
+		for(i=0;i<imgArray.length;i++){
+			var obj = imgArray[i];
+			obj.style.zIndex ++;	//1씩증가
+			obj.style.zIndex %=imgArray.length;
+			
+		}
+	}
+	
+	</script>
+</body>
+</html>

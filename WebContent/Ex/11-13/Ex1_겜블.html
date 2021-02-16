@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>겜블링 게임</title>
+    <style>
+        div {
+            font-family: "고딕";
+            background-color:antiquewhite;
+            padding-left: 10px;
+            width:fit-content;
+            outline: solid black 1px;
+        }
+        span {
+            padding-right: 20px;
+            font-style: italic;
+            font-size: 4em;
+            height:1em;
+            widows: 1em;
+            color:blue;
+        }
+    </style>
+    <script>
+        // 초기화
+        function reset(){
+            this.parentElement.removeChild(this); //결과 태그 지움
+            // 문서 내 모든 span태그의 값을 0으로 바꿈
+            var spanTags = document.getElementsByTagName('span');             
+            for(var i = 0;i<spanTags.length;i++){
+                spanTags[i].innerHTML="0";
+            }
+        }
+        // 랜덤 숫자 
+        function getRandomNumber(){
+            return Math.floor(Math.random()*3);
+        }
+        // 게임결과를 출력
+        function finishGame(obj){
+            obj.innerHTML = getRandomNumber(); // 현재 박스에 랜덤숫자 넣기
+            var parent = obj.parentElement ;
+            var children = parent.children;
+
+            // 검사
+            var i,
+            totallySame=true, /* 전부 같은지 여부 */
+            firstValue= children[0].innerText;   // 첫번째 요소의 숫자(이것과 비교함)         
+            for(i=1;i<children.length;i++){
+                if(firstValue!=children[i].innerText){
+                    totallySame=false;
+                }
+            }
+
+            // 결과 출력
+            var pTag = document.createElement('p');
+            pTag.onclick = reset; // 클릭하면 reset하는 이벤트
+            if(parent.parentElement.lastChild !=parent) // 이전 결과가 있을 경우
+                parent.parentElement.removeChild(parent.parentElement.lastChild);
+            parent.parentElement.appendChild(pTag);
+            
+            // 성공
+            if(totallySame){
+                pTag.innerText="Success(click here to do again)";
+                console.log("success");                
+            }      
+            // 실패          
+            else {
+                console.log("faild")
+                pTag.innerText="fail(click here to do again)";             
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>겜블링 게임</h3>
+    <p>각 숫자를 클릭하면 0에서 2사이의 난수로 바뀝니다 모두 같은 수가 나오면 승리합니다.</p>
+    <hr>
+    <div>
+        <span onclick="innerHTML=getRandomNumber()">0</span>
+        <span onclick="innerHTML=getRandomNumber()">0</span>
+        <span onclick="finishGame(this)">0</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- 
+	오른쪽 시프트연산 : >> : 2로 나누는 효과가 발생 - 채우는쪽은 무조건0으로 채운다.
+	왼쪽 시프트연산 : << : 2로 곱하는 효과가 발생 - 채우는쪽은 무조건 0으로 채운다.
+	
+	논리적 오른쪽/왼쪽 시프트 : >>>,<<< : 채워넣는 쪽의 비트는 0이 아니라 그전에 있던 0,1
+									값중에 동일한 값으로 채워 넣는다.
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>비트와 시프트 연산</title>
+<script type="text/javascript">
+	
+	function digit8(v) {	// 10진수 값을 받아서 2진수로 반환해주는 함수
+		var str="";
+		
+		for(var i=0; i<8; i++, v<<=1){
+			if(v & 0x80)
+				str +="1";
+			else str+="0";
+		}
+		return str;
+	}
+	
+
+</script>
+</head>
+<body>
+	<h3>비트 논리연산자와 시프트 연산</h3>
+	<hr>
+	<script type="text/javascript">
+		var x=10, y=3;
+		document.write("<pre>")
+		document.write("x= "+x+",y= "+y+"<br>");
+		document.write("x :    "+digit8(x)+"<br>");
+		document.write("y :    "+digit8(y)+"<br>");
+		document.write("<hr>");
+		
+		document.write("x&y:   "+digit8(x&y)+"<br>");
+		document.write("x|y:   "+digit8(x|y)+"<br>");
+		document.write("x^y:   "+digit8(x^y)+"<br>");
+		document.write("~x :   "+digit8(~x)+"<br>");
+		document.write("<hr>");
+		document.write("x<<1:  "+"("+(x<<1)+")<br>");
+		document.write("x>>1:  "+"("+(x>>1)+")<br>");
+		document.write("x>>>1:  "+"("+(x>>>1)+")<br>");
+		document.write("</pre>")
+	</script>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+

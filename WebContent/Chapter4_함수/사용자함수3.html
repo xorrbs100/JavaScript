@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Factorial</title>
+<script type="text/javascript">
+	function f1(n) {
+		var result = 1;
+		var num=Number(n);
+		for(i=1;i<=num;i++){
+			result*=i;	
+		}
+		return result;
+	}
+	function f2(n) {
+		var result=1;
+		num=Number(n);
+		for(i=1;i<=num;i++)
+			result*=i;
+		document.write(n+"!= "+result+"입니다.<br>");
+	}
+	for(j=1;j<=20;j++){
+		if(j/2*2==j){
+			document.write(j+"!= "+f1(j)+"<br>");
+		}else f2(j);
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

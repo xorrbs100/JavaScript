@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- 
+	증감연산자
+		: 1씩 증감되는 연산자
+		: 반환시점을 어느시점에서 하느냐에 따라 전위증감연산자, 후위증감연산자가 구분된다.
+		
+		예)	전위연산자 ++a: 증가시키고 반환한다.
+			후위연산자 a++: 반환후 증가시킨다.
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var a=1;
+	var b=a++;	//후위증감연산
+	//후위증감연산 처리결과
+	document.write("b:",b,"<br>");
+	document.write("a:",a,"<br>");
+	
+	var c=1;
+	var d=++c;
+	document.write("d:",d,"<br>");
+	document.write("c:",c,"<br>");
+</script>
+</head>
+<body>
+
+</body>
+</html>

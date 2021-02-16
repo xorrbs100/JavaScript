@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--  
+
+	브라우저가 실행되는 스클니 장치에 관한 정보를 담고 있는 객체이다.
+	
+		프로퍼티					설명
+		-------------------------------------------
+		availHeight				작업표시줄 등을 제외하고 브라우저가 출력가능한 영역의 높이
+		availWidth						"							폭
+		pixelDepth				한 픽셀에서 나타낼 수 있는 색의 수(비트수)
+		colorDepth				한 픽셀의 색을 나타내기 위해 사용되는 비트수로서 pixelDepth와 동일
+								대부분의 브라우저에서 지원되므로 되도록 colorDepth를 사용할것
+		height					스크린의 수직 픽셀수
+		width					스크린의 수평 픽셀수
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	function printScreen() {
+		var text = "availHeight : "+screen.availHeight+"<br>";	//작업표시줄 높이제외
+		text += "availWidth : "+screen.availWidth+"<br>";
+		text += "colorDepth"+screen.colorDepth+"<br>";	//픽셀당 2의 n승 색 표현
+		text += "pixelDepth"+screen.pixelDepth+"<br>";
+		text += "height"+screen.height+"<br>";	// 스크린크기- 브라우저의 설정에서 확대/축소를 100%해놓고 봐야함
+		text += "width"+screen.width+"<br>";
+		
+		document.getElementById("div").innerHTML=text;
+	}
+</script>
+</head>
+<body onload="printScreeen()">
+	<h3>스크린 장치에 관한 정보</h3>
+	<hr>
+	<div id="div"></div>
+</body>
+</html>

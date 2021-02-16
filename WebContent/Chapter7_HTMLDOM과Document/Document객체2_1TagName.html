@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- 
+	DOM객체를 찾는 document객체의 메소드 4가지
+		getElementsByTagName()		주어진 태그이름을 가진 모든 태그(DOM객체)의 컬렉션 리턴
+		getElementsByClassName()	주어진 class속성값을 가진 모든 태그(DOM객체)의 컬렉션 리턴
+		getElementsByName()			주어진 name속성값을 가진 모든 태그(DOM객체)의 컬렉션 리턴
+		getElementById()			주어진 ID속성값을 가진 첫번째 DOM객체 리턴
+		
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TagName으로 DOM객체 찾기</title>
+<script type="text/javascript">
+	function change() {
+		var spanArray= document.getElementsByTagName("span");
+		
+		for(i=0;i<spanArray.length;i++){
+			var span=spanArray[i];
+			span.style.color='orchid';
+			span.style.fontSize='20px';
+			
+		}
+	}
+
+</script>
+</head>
+<body>
+	<h3>내가 제일 좋아하는 과일
+		<button type="button" onclick="change()">눌러주세요</button>
+	</h3>
+	<hr>
+	저는 빨간<span>사과를</span> 좋아해서
+	아침마다 한개씩 먹고 있습니다. 운동할 때에는 중간 중간에 <span>바나나를</span> 먹는데,
+	탄수화물 섭취가 빨라서 힘이 납니다. 또한 달콤한 향기를 품은 <span>체리</span>와
+	여름 냄새가 물씬나는 <span>자두를</span> 좋아합니다.
+</body>
+</html>

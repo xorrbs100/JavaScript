@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- 
+   옵션을 선택하면 주어진 사이트에 접속하는 웹페이지를 작성하시오
+      2) 새 윈도우는 한개만 열고 옵션 선택시 이 윈도우를 공유하도록 웹페이지를 작성 (한개의 창으로 공유)
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+   function loadSite(select) {
+      var index = select.selectedIndex;
+      var site = select.options[index].value;
+      window.open(site,"myWin","left=500,top=400,width=500,height=400");
+   }
+</script>
+</head>
+<body>
+   <h3>옵션선택으로 사이트접속</h3>
+   윈도우 하나를 공유
+   <hr>
+   <form>
+      <p>접속할 사이트</p>
+      <select onchange="loadSite(this)">
+         <option value="http://www.naver.com">네이버</option>
+         <option value="http://www.google.com">구글</option>
+         <option value="http://www.oracle.com">오라클</option>
+      </select>
+   </form>
+   <!-- 
+   select. option으로 HTML구현
+   네이버, 구글, 오라클 띄우기
+   
+   이름이 있고 없고 차이 14번줄
+    -->
+</body>
+</html>

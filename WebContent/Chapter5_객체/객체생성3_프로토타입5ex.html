@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body {
+	background: yellow;
+}
+</style>
+<script type="text/javascript">
+	var n1=parseFloat(prompt("첫번재 숫자를 입력해주세요",""));
+	var n2 = new Number(prompt("두번째 숫자를 입력해주세요",""));
+	function Calculator(num1,num2) {
+		this.num1 = num1;
+		this.num2 = num2;
+		
+		this.add=add;
+		this.sub=sub;
+		this.mul=mul;
+		this.div=div;
+	}
+	function add() {
+		document.write("<br>더하기 결과 : "+parseFloat(this.num1+this.num2))
+		
+	}
+	function sub() {
+		document.write("<br>빼기 결과 : "+parseFloat(this.num1-this.num2))
+		
+	}
+	function mul() {
+		document.write("<br>곱하기 결과 : "+parseFloat(this.num1*this.num2))
+		
+	}
+	function div() {
+		document.write("<br>나누기 결과 : "+parseFloat(this.num1/this.num2))
+		
+	}
+	var a1 = new Calculator(n1,n2);
+	document.write("num1의 값은 "+a1.num1+"<br>");
+	document.write("num2의 값은 "+a1.num2+"<br><br>");
+	a1.add();
+	a1.sub();
+	a1.mul();
+	a1.div();
+</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>book 객체생성</title>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+	<h3>book객체 만들기</h3>
+	<hr>
+	<script type="text/javascript">
+		var book1 = new Object();
+		book1.title = "HTML5/CSS3";
+		book1.author="홍길동";
+		book1.price="20000";
+		
+		document.write("book1: ");
+		document.write(book1.title+",");
+		document.write(book1.author+",");
+		document.write(book1.price+"<br>");
+		
+		document.write("<hr>");
+		//리터럴
+		var book2={
+			title: "HTML5",
+			author: "홍길둥",
+			price: "15000",
+		};
+		document.write("book2: ");
+		document.write(book2.title+",");
+		document.write(book2.author+",");
+		document.write(book2.price+"<br><hr>");
+		//프로토
+		function info(title,author,price) {
+			this.title=title;
+			this.author=author;
+			this.price=price;
+
+
+		}
+		var book3=new info("CSS3","홍길듕","15000");
+		document.write("book3: ");
+		document.write(book3.title+",");
+		document.write(book3.author+",");
+		document.write(book3.price+"<br>");
+		
+	</script>
+	
+</body>
+</html>

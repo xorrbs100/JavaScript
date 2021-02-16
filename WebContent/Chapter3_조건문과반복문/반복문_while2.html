@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body{background-image: url("../img/꽃.jpg");}
+	p{font-size: 18px; font-style: border;}
+</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li><a href="#1단">1단 구구단</a>
+			<li><a href="#2단">2단 구구단</a>
+			<li><a href="#3단">3단 구구단</a>
+			<li><a href="#4단">4단 구구단</a>
+			<li><a href="#5단">5단 구구단</a>
+			<li><a href="#6단">6단 구구단</a>
+			<li><a href="#7단">7단 구구단</a>
+			<li><a href="#8단">8단 구구단</a>
+			<li><a href="#9단">9단 구구단</a>
+		</ul>
+	
+	</div>
+	<script type="text/javascript">
+		var dan =Number(prompt("단을 입력해주삼!",""));
+		var su = parseInt(prompt("수를 입력해주삼!",""));
+		
+		var i=1, j=1, num=1;
+		
+		while (i<=dan) {
+			document.write("<h4><a name="+i+"단>"+i+"단"+"</a></h4><hr>");
+			while (j<=su) {
+				num=i*j;
+				document.write("<p>"+i+"*"+j+"="+num+"</p>");
+				j++;
+			}
+			document.write("<br>");
+			j=1;
+			i++;
+		}
+		
+	</script>
+</body>
+</html>

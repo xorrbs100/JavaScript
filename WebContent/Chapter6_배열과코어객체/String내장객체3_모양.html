@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- 
+	String 객체
+		.문자의 모양을 지정하거나 문자열을 다루기 위한 객체
+		
+		. 메소드 : 아래내용참조, HTML에 있는 태그와 비교해볼 것.
+		
+			자바스크립트						HTML
+------------------------------------------------------		
+		. fontcolor("색")				: <font color="색">
+		. fontsize(1~7) 				: <font size="크기">
+		
+		. 문자열 .anchor("이름")			: <a name="이름">
+		. 문자열 .link("#이름 또는 url()")	: <a href="#이름" 또는url()>
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	document.write("<h3><p>(*1*)String객체의length속성".anchor("list1")+"</p></h3>")
+
+	document.write("<br>[1]한글 = ", "자바스크립트".length);
+	document.write("<br>[2]영문 = ","JavaScript".length);//길이
+	
+	//문자열.link("url")
+	document.write("<p>string 객체의 위치 이동관련 메소드 알아보기".link("./Date내장객체1.html")+"</p>");
+	str="자바스크립트(Java Script)";
+	for(i=0;i<str.length;i++){
+		document.write(i+"<br>");	//문자열 길이만큼 줄바꿔서 번호찍기
+	}
+	document.write("<hr><h3><p>(*2*)String객체의 글꼴 관련 메소드".anchor("list2")+"</p></h3>");
+	document.write("<br>[1] big메소드 = "+str.big());	//글자 한단계 크게
+	document.write("<br>[2] small메소드 = "+str.small()); //글자를 한단계 작게
+	document.write("<br>[3] bold메소드 = "+str.bold()); 	//글자굵게
+	document.write("<br>[4] italics메소드 = "+str.italics());//글자를 이태릭체로
+	document.write("<br>[5] strike메소드 = "+str.strike()); //글자중간에 가로줄
+	document.write("<br>[6] sub메소드 = "+str.sub());	//아래첨자
+	document.write("<br>[7] sup메소드 = "+str.sup()); //위첨자
+	
+	document.write("<br><br>[8]fontcolor메소드 = "+str.fontcolor("red"));
+	document.write("<br>[9] fontsize 메소드 = "+str.fontsize(7));
+	for(i=0;i<str.length;i++){
+		document.write("<br>")
+		
+	}
+	document.write("<hr><h3><p>(*3*)String객체의 위치이동 관련 메소드".anchor("list3")+"</p></h3>");
+	document.write("<p>string객체의 속성 알아보기".link("#list1"));
+	document.write("<p>string객체의 글꼴 관련 메소드 알아보기".link("#list2"));	//위에anchor호출
+	document.write("<p>link메소드(네이버)".link("https://www.naver.com"));
+	document.write("<h3>다음".link("https://daum.net/"));
+	
+	
+	
+</script>
+</head>
+<body>
+	<hr>
+	<h3>HTML에서 태그로 출력</h3>
+	<p><small>문자열 한단계 작게.small()</small></p>
+	<p><blink>문자열 깜빡이도록 지정.blank()</blink>
+	<p><bold>문자열 굵게 지정.bold()</bold>
+	<p id="s"><tt>곶어된크기설정.fixed</tt>
+	<p><italics>이탤릭체로지정.italics()</italics></p>
+	<p><strike>가운데 줄이 그어지도록 지정.strike</strike>
+	<p><sub>아래첨자.sub()</sub>
+	<p><sup>위첨자</sup>
+	<p><font color="red">글자색상지정.fontcolor</font>
+	<p><font size="20px">글자크기지정.fontsize(7)</font>
+	
+	<a href="#그곳">그 곳으로 가기</a>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<a name="그곳"><h2>여기가 그곳입니다.</h2></a>
+</body>
+</html>

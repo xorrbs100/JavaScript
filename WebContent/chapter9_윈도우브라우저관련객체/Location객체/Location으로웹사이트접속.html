@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--  
+	1. Location객체
+		- 윈도우에 로드된 웹 페이지의 URL정보를 나타내는 객체이다.
+		- 윈도우가 열릴 때 자동으로 생성된다.
+		- URL정보는 window.location프로퍼티를 통해 알수있다.
+		
+	2. 프로퍼티와 메소드
+		
+			프로퍼티/메소드					설 명
+		-------------------------------------------------
+			hash					#을 포함하는 앵커 이름 문자열
+			host					도메인과 포트번호를 포함하는 웹 서버주소 문자열
+			hostname				웹서버이름
+			href					URL전체 문자열
+			pathname				디렉토리 부분 문자열
+			search					URL'?'와 그 뒷부분 문자열로서, 주로 웹서버로 검색을 요청할 때 동반되는 파라미터 문자열
+			protocal				프로토콜 문자열
+			assign()				새로운 웹 페이지를 로드한다.
+			reload()				현재 웹 페이지를 다시 로드한다.(변경사항은 반영된다)
+			replace()				현재 웹 페이지의 URL을 히스토리에서 제거하고 새로운 페이지를 로드한다.
+	
+	3. 활용예제
+		. 현재 윈도우에 네이버 페이지를 로드하는 자바스크립트를 구현하고 싶다.
+			window.location = "http://www.naver.com";
+			window.location.href = "http://www.nvaer.com";
+			
+		. location객체를 활용한 재작성
+			window.location.assign("http://www.naver.com");
+			window.location.replace("http://www.naver.com");
+			
+		. location객체를 이용하여 새 윈도우에 네이버 페이지를 로드하는 사계
+			var win = window.open();	비어있는 윈도우 열기
+			win.location = "http://www.naver.com";		빈 윈도우에 네이버 페이지 로드
+			
+
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	function load() {
+		var select= document.getElementById("site");
+		window.location = select[select.selectedIndex].value;
+	}
+
+</script>
+</head>
+<body>
+	<h3>window.location으로 웹 사이트 접속</h3>
+	<hr>
+	사이트 선택 : 
+	<select id="site">
+		<option value="http://www.naver.com" selected>네이버
+		<option value="http://www.google.co.kr" selected>구글
+		<option value="http://www.microsoft.com" selected>마이크로소프트
+	</select>
+	<p>
+	<button onclick="load()">웹사이트접속</button>
+</body>
+</html>

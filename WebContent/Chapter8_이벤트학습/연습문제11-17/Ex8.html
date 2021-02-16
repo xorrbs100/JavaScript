@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>mouseover</title>
+<script type="text/javascript">
+	
+	window.onmouseover = function(e) {
+		if(e.target.tagName.toLowerCase()!="span"){
+			return;
+		}
+		else{
+			e.target.style.textDecoration="underline";
+		}
+	}
+	window.onmouseout = function(e) {
+		if(e.target.tagName.toLowerCase()!="span"){			//이벤트의 타겟 , 태그네임, 소문자로일치시키기 !="";
+			return;
+		}
+		else{
+			e.target.style.textDecoration="none";
+		}
+	}
+</script>
+</head>
+<body>
+	<h3>span태그에서만 onmouseover/onmouseout적용하기</h3>
+	<hr>
+	<p>span태그에 대해서만 <SPAN>마우스</span>가 올라올 때만 밑줄이 생기게 <span>자바스크립트 코드로</span> 작성한다.</p>
+	
+</body>
+</html>

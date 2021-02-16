@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	버튼을 클릭하면 사진이 추가됩니다.<hr>
+	
+	<button type="button" onclick="insertImage1()">사진1</button>
+	<button type="button" onclick="insertImage2()">사진2</button>
+	<div id="b1"></div>
+	<hr>즐겁게 코딩합시다. 하기싫을때는 놉시다.
+	
+	<script type="text/javascript">
+		function insertImage1() {
+			var tag = document.getElementById("b1");
+			var newImg = document.createElement("img");
+			newImg.setAttribute("src", "../img/스폰지밥.png")
+			tag.appendChild(newImg);
+		}
+		function insertImage2() {
+			var tag = document.getElementById("b1");
+			var newImg = document.createElement("img");
+			newImg.setAttribute("src", "../img/뚱이.png")
+			tag.appendChild(newImg);
+		}
+	
+	</script>
+</body>
+</html>

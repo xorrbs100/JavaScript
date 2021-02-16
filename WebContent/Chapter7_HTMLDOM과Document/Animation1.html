@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--  
+	애니메이션
+		. 태그내용이나 속성값을 짧은 시간간격으로 계속 변경하게 하면
+			웹브라우저 화면에는 애니메이션 효과를 나타낼 수 있다.
+		
+		. window객체 메소드중 setInterval(함수명,밀리초) : 밀리초단위 주기적인 반복시행
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>디지털 시계</title>
+<style type="text/css">
+	#t1{
+		width: 250px; 
+		background-color: skyblue;
+		text-align: center;
+		border-radius: 10%;
+	}
+</style>
+<script type="text/javascript">
+	var inter = 500;
+	function changeObj() {
+		var obj=document.getElementById("t1");
+		var now = new Date();
+		var h = now.getHours();
+		var m = now.getMinutes();
+		var s =now.getSeconds();
+		
+		if(h<12) txt = "AM";
+		else txt ="PM";
+		obj.innerHTML = "현재시간 : "+txt+" "+h+"시 "+m+"분 "+s+"초 ";
+	}
+	//애니메이션으로 함수 호출
+	window.setInterval(changeObj(),inter);
+	
+	
+</script>
+</head>
+<body>
+	<h2>디지털 시계</h2>
+	<h1 id="t1"></h1>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+   /* 윈도우가 포커스를 잃으면 */
+   window.onblur = function (e) {
+      document.body.style.backgroundColor = "lightgray";
+   }
+
+   /* 윈도우가 포커스를 가지면 */
+   window.onfocus = function (e) {
+      document.body.style.backgroundColor = "white";
+   }
+
+
+</script>
+</head>
+
+
+<body>
+
+   <h3>포커스, onfocus, onblur</h3>
+   <hr>
+   <p>브라우저 바깥에 마우스를 클릭하면
+   window 객체에 blur이벤트가 발생하고
+   다시 마우스를 클릭하면 window객체에 focus이벤트가
+   발생하도록 구현하시오.</p>
+   
+</body>
+</html>

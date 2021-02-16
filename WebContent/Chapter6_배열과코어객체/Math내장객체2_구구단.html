@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- 
+	. 팝업창에 몇*몇 랜덤하게 출력되면
+	. 답을 적는다
+	. 맞으면 정답, 틀리면 아니오!
+	
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function randomInt() {
+		return Math.floor(Math.random()*9)+1;	//1~10랜덤발생,반환
+	}
+</script>
+
+
+
+</head>
+<body>
+	<h3>Math를 활용한 구구단 연습</h3>
+	<hr>
+	<script type="text/javascript">
+		//구구단 문제생성
+		var question= randomInt()+"*"+randomInt();
+		//prompt창으로 사용자에게 문제를 제시하고 답을 구함.
+		var answer=prompt(question+"값은 얼마입니까?",0);
+		//만약 null이면 구구단을 종료합니다. 출력
+		if(answer==null){
+			document.write("구구단 연습을 종료합니다.");
+		// 그렇지 않으면 구구단 정답과 사용자가 답한 답을 비교해서 정답! 아니오! 를 출력
+		}else{
+			var dep= eval(question);
+			if(dap==answer){
+				document.write("정답 !");
+			}
+			else{
+				document.write("아니오!");
+				document.write(question+"="+"<strong>"+dap+"</strong>입니다.<br>");
+			}
+		}
+
+	</script>
+</body>
+</html>

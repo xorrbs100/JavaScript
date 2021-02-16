@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>큰자리수와 낮은자리수 같은지 비교</title>
+<script type="text/javascript">
+	var n=parseInt(prompt("수를 입력하세요"));
+	var arr= [];
+	while(true){
+		if(n==0){
+		break;
+		}	
+		var i=0;
+		arr[i]=n%10;
+		n=n/10;
+		parseInt(n);
+		i++;
+	}
+	for(i=0;i<arr.length;i++){
+		if(arr[i]==arr[i+1]){
+			document.write("같음");
+		}
+		else document.write("다름");		 break;
+	}
+
+</script>
+</head>
+<body>
+</body>
+</html>

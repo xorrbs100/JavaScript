@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var n =30;
+	var y=30;
+	function wheel(e) {
+		
+		document.getElementById("img");
+		if(e.wheelDelta<0){
+			img.style.width=n+"px";
+			img.style.height=y+"px";
+			n++;
+			y++;
+			
+		}
+		else{
+			img.style.width=n+"px";
+			img.style.height=y+"px";
+			n--;
+			y--;
+			if(n<10){
+				n=10;
+				y=10;
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<h3>마우스휠로이미지조절</h3>
+	<hr>
+	<p>이미지 위에 휠을 위로 굴리면 이미지가 축소되고 아래로 굴리면 이미지가 확대됩니다.</p>
+	<img onwheel="wheel(event)" src="../../img/스폰지밥.png" id="img">
+</body>
+</html>

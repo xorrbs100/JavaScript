@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	table {
+		text-align: center;
+		border: 0;
+		width: 300px;
+		
+	}
+	tr{
+		text-align: center;
+	}
+	td{
+		width: 80px;
+	}
+	input[type=button] {
+		width: 60px;
+	}	
+</style>
+<script type="text/javascript">
+	function addInput(b) {		//숫자나 기호가 눌려지면 화면에 출력해주는 함수
+		var lcd = document.getElementById("lcd");
+		if(lcd.value=="0"){
+			lcd.value=b;
+		}else{
+			lcd.value+=b;	//출력창에 버튼의 문자를 덧붙임
+		}
+	}
+	function backward() {		//숫자한개씩 지우는 함수
+		var lcd=document.getElementById("lcd");
+		var len=lcd.value.length;
+		if(len==0){ 		//입력된것 없음
+			return;
+		}
+		else{
+			lcd.value=lcd.value.substr(0,len-1);		//벨류에 현재문자열 길이에서 -1 한값 대입
+		}
+	}
+	function calculate() {		// =이 눌리면 입력받은 텍스트를 계산해주는 함수
+		var lcd=document.getElementById("lcd");
+		lcd.value=eval(lcd.value);
+		
+	}
+	function clearLcd() {		//입력된 텍스트 클리어
+		var lcd=document.getElementById("lcd");
+		lcd.value="0";
+	
+	}
+	
+</script>
+</head>
+<body>
+	<h3>계산기 만들기</h3>
+	<hr>
+	<table>
+		<tr><td colspan="4"><input type="text" id="lcd" value="0" size="50">
+		<tr><td><input type="button" value="BACK" id="back" onclick="backward()"><td><input type="button" value="CE" id="ce" onclick="clearLcd()"><td><input type="button" value="C" id="c" onclick="clearLcd()"><td><input type="button" value="=" id="equal" onclick="calculate()">
+		<tr><td><input type="button" value="7" id="seven" onclick="addInput(this.value)"><td><input type="button" value="8" id="eight" onclick="addInput(this.value)"><td><input type="button" value="9" id="nine" onclick="addInput(this.value)"><td><input type="button" value="/" id="divi" onclick="addInput(this.value)">
+		<tr><td><input type="button" value="4" id="four" onclick="addInput(this.value)"><td><input type="button" value="5" id="five" onclick="addInput(this.value)"><td><input type="button" value="6" id="six" onclick="addInput(this.value)"><td><input type="button" value="*" id="mul" onclick="addInput(this.value)">
+		<tr><td><input type="button" value="1" id="one" onclick="addInput(this.value)"><td><input type="button" value="2" id="two" onclick="addInput(this.value)"><td><input type="button" value="3" id="three" onclick="addInput(this.value)"><td><input type="button" value="-" id="mina" onclick="addInput(this.value)">
+		<tr><td><input type="button" value="0" id="zero" onclick="addInput(this.value)"><td><input type="button" value="+" id="plus" onclick="addInput(this.value)"><td><input type="button" value="NONE" id="none1" onclick=""><td><input type="button" value="NONE" id="none2" onclick="">
+	</table>
+</body>
+</html>

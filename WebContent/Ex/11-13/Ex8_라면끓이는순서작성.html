@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function addItem() {
+		var parent= document.getElementById("1");
+		//외부에서 라면 끓이는 순서를 입력받는다.
+		var str= prompt("라면끓이는 순서를 작성해 주세요","");
+		//입력받은 순서를 추가한다
+		var newlist = document.createElement("li");
+		newlist.innerHTML=str;
+		parent.appendChild(newlist);
+	}
+</script>
+</head>
+<body>
+	<h3>라면을 끓이는 순서작성하기</h3>
+	<hr>
+	<ol type="A" style="background-color: yellowgreen" onclick="addItem()" id="1">
+		<li>물을 끓인다.
+	</ol>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--  
+	옵션을 선택하면 주어진 사이트에 접속하는 웹페이지를 작성하시오.
+	1) 새 윈도우를 하나씩 열어서 사이트 접속하는 웹페이지를 생성(매번 새로운 창)
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	function load() {
+		var select= document.getElementById("site");
+	    window.open(select.value,"","",true);
+	}
+
+</script>
+</head>
+<body>
+	<h3>옵션 선택으로 사이트 접속</h3>
+	옵션을 선택할 때마다 새로운 윈도우에 접속합니다.
+	<hr>
+	<!-- 네이버 구글 오라클 www.oracle.com  -->
+	<select id="site" >
+		<option value="http://www.naver.com"  onclick="load()">네이버
+		<option value="http://www.google.co.kr"  onclick="load()">구글
+		<option value="http://www.oracle.com" onclick="load()">오라클
+	</select>
+</body>
+</html>

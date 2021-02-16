@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--  
+	윈도우 위치와 크기는 window프로퍼티로 조절할 수 없고
+	
+		. moveTo(), moveBy()
+		. resizeTo(), resizeBy()로 해야한다.
+		
+		. 방법 : window.moveTo() 또는 self.moveTo() 또는 moveTo()해도된다.
+		
+		* 보안상의 문제로 크롬에서는 적용되지 않는다. (익스플로에서 됨)
+		
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>윈도우의 위치와 크기 조절</h3>
+	<p>창을 작게 해놓고 익스플로러로 실행해보세요. 크롬에서는 보안상 문제로 적용되지 않습니다.
+	<hr>
+	<button onclick="window.moveBy(-10,0)">left</button>
+	<button onclick="window.moveBy(10,0)">right</button>
+	<button onclick="self.moveBy(0,-10)">up</button>
+	<button onclick="self.moveBy(0,10)">down</button>
+	<button onclick="resizeBy(10,10)">+</button>
+	<button onclick="resizeBy(-10,-10)">+</button>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--  
+	rect(x,y,w,h) : x,y에서 w*y 만한 사각형
+	strokeRect(x,y,w,h) : x,y에서 w*h 크기의 사각형을 경로에 삽입하지 않고 캔버스에 직접그리기
+
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>사각형그리기</h3>
+	<hr>
+	<canvas id="myCanvas" style="background-color: aliceblue" width="300" height="150"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById("myCanvas");
+		var context = canvas.getContext('2d');
+		
+		context.beginPath();
+		for(i=0;i<5;i++){
+			context.rect(10+i*30, 10+i*10, 50, 50);
+			
+		}
+		context.strokeStyle="magenta";
+		context.stroke();
+
+		
+	
+	</script>
+</body>
+</html>

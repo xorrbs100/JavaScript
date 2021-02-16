@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--  
+	웹페이지가 로드될 때, "접속 감사합니다!" 라는 문장으 ㄹ담은
+	200*80 크기의 새로운 윈도우창(팝업)을 별도로 출력하도록 웹페이지를 작성
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	function newPage() {
+		var win = window.open("","popup",option);
+		var option = "width = 200, height = 80"
+		win.document.write("<html><head><title>New Window Title!</title></head><body><h1 style='font-size:12pt;padding:5px;border:1px solid black;'>접속 감사합니다!</h1></body></html>")
+	}
+</script>
+</head>
+<body onload="newPage()">
+	<h3>HTML5</h3>
+	<hr>
+	<p onclick="newPage();">
+	HTML5를 학습하는 사이트입니다.
+	여기에서 HTML5, CSS3, 자바스크립트를
+	배웠습니다.</p>
+	
+</body>
+</html>

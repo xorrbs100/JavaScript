@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- 
+	Object객체
+		. 모든 객체의 최상위 객체이다.
+		. 자바스크립트의 모든 객체는 Object객체의 모든 속성과 메소드를 상속받고
+			필요하면 재정의하여 사용할 수 있다.
+		. Object객체를 생성하면 아무런 속성과 메소드를 갖지 않는 것이 아니라,
+			그것은 사용자 관점에서의 이야기이고 실제로는 속성과 메소드들을 기본으로 가진다.
+		. toString()메소드 이외는 거의 사용되지 않는다.
+		
+		. 주요메소드
+			- constructor() : 객체의 생성자 함수
+			- hasOwnProperty(name): name을 속성으로 가지고 있는지 여부를 판단(true, false)
+			- toString(n) : 수치를 n진 수치표현 문자열로 변환함. (재정의해서 사용한다)		
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	var obj = new Object();
+	obj.name = "홍길동";
+	obj.major="프로그래밍학과";
+	
+	document.write("obj의 constructor: ");
+	document.write(obj.constructor()+"<br>");
+	document.write("obj의 toString(): ");
+	document.write(obj.toString());
+	document.write("<br>");
+	
+	//toString재정의
+	obj.toString = function () {
+		document.write("{name:"+this.name+"major: "+ this.major+"}")
+	};
+	document.write("obj의 toString(): " );
+	document.write(obj.toString());	//재정의한것 호출
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

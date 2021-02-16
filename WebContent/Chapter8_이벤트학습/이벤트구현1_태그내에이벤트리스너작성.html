@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--  
+	1. 이벤트란?
+		- 사용자의 입력행위
+		- 문서나 브라우저의 상태변환
+		▶  위의 이런것을 브라우저가 자바스크립트 코드에 알려주는 통지(notification)이다.
+		 
+	2. 이벤트리스너란?
+		- 발생한 이벤트에 적절히 대처하기 위해 작성된 자바스크립트 코드를 말한다.
+	
+	3. 웹 페이지의 동적변화
+		- 이벤트가 발생하지 않으면 브라우저의 화면은 아무런 변화가 없다.
+		- 이벤트가 발생하면 브라우저는 개발자가 작성한 이벤트 리스너 코드를 호출하여 이벤트를 처리하도록 한다.
+		
+		* 용어정의
+					HTML페이지			브라우저
+			-----------------------------------------
+					HTML태그	---------▶ DOM객체 -▶화면에 출력
+										(HTML객체)
+	4. 이벤트 종류(약 70여개)
+		- 이벤트 리스너의 이름 만드는 법 : on + 이벤트 = 이벤트 리스너 (모두소문자)
+		
+				이벤트리스너						이벤트가 발생하는 경우
+			---------------------------------------------------------------------
+				onclick							사용자가 객체에 클릭할때
+				onload							문서나 이미지의 로딩이 완료된 직후
+				onabort							이미지나 문서의 로딩이 중단된 경우
+				onresize						윈도우, 프레임 혹은 객체의 크기가 변경되었을 때
+				onfocus							객체가 포커스를 가지게 되었을때
+				onblur							객체가 포커스를 잃었을때
+				onchange						input,select,textarea등 선택내용이나 체크상태가 변화될때
+				onreset							폼의 reset버튼을 눌렀거나 script코드로 폼을 리셋시켰을 때
+				onsubmit						submit버튼을 클릭해서 폼을 서버로 전송할때
+			--------------------------------------------------------------------
+		key		onkeydown						사용자가 아무 키를 누르는 순간
+				onkeypress						사용자가 알파뉴메릭(문자숫자)를 누르는 순간(Ascii,unicode)
+				onkeyup							사용자가 키를 놓눈 순간
+			---------------------------------------------------------------------
+		mouse	ondblclick						객체에 더블클릭이 되었을 때
+				oncontextmenu					객체에 오른쪽 마우스 버튼이 클릭될 때
+				onmouseenter					마우스 커서가 객체영역 안으로 들어가는 순간
+				onmouseleave					마우스 커서가 객체영역 밖으로 벗어나는 순간
+				onmousemove						객체 위에서 마우스가 움직이는 동안 계속 발생
+				onmouseover						마우스 커서가 객체영역(자식들포함)안으로 들어가는 순간
+				onmouseout						마우스 커서가 객체영역(자식들포함)에서 벗어나는 순간
+				onmouseup						마우스 버튼을 놓는 순간
+				onwheel							마우스 휠을 굴리는 매 순간 (onmouswheel 폐기되었음)
+			----------------------------------------------------------------------		
+				onsearch						<input type = "search">에 검색 텍스트를 입력하고 enter키를 누를때
+				onselect						입력된 텍스트를 사용자가 선택할 때(예:텍스트를 마우스로 긁어 선택하는 경우)
+				
+	5. 이벤트 리스너 만드는 방법 4가지
+		
+		방법1 : HTML태그 안에서 작성하는 방법
+		방법2 : DOM객체의 이벤트 리스너 프로퍼티에 작성하는 방법
+		방법3 : DOM객체의 addEventListener() 메소드를 이용해서 작성하는 방법 - 복수로추가가능
+		방법4 : 익명함수로 필요한 곳에 함수를 정의하여 사용				
+-->
+
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>HTML태그에 리스너 작성</h3>
+	<hr>
+	<p onmouseover="this.style.backgroundColor='orange'" onwheel="this.style.backgroundColor='white'; this.style.fonSize='15px'" 
+		onmousewheel="body.style.backgroundColor='yellow'"
+		ondblclick="this.style.fontSize='30px'"
+	>
+	마우스를 올리면 orange색으로 배경색이 변하고, 마우스가 벗어나면 white색으로 배경색이 변함.</p>
+	
+</body>
+</html>

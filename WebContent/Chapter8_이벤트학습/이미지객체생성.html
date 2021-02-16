@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--  
+	1. 이미지 생성 및 출력방법
+		방법1 : <img>태그활용
+		방법2 : new Image() 생성자 함수활용 객체생성
+	
+	2. new Image()
+		- 생성된 객체는 이미지를 로딩하여 (미리 실행해서) 저장해 두는 목적으로만 사용된다.
+		- Image객체에 로딩된 이미지는 결국은 <img>태그를 통해서만 화면에 출력된다.
+		- 해상도가 높아 크기가 큰 이미지를 많이 다루는 웹페이지에서는 new Image()로
+			이미지 객체를 만들어 미리 백그라운드에 로딩해 놓으면 화면의 출력속도를 높일수 있다.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>new Image()로 이미지 저장하기</title>
+<script type="text/javascript">
+	var files=["../img/엘사.png","../img/뚱이.png","../img/슈렉.png"]
+	
+	//이미지 객체를 저장할 배열생성
+	var imgs = new Array();
+	for(i=0;i<files.length;i++){
+		imgs[i]=new Image();		//이미지 객체생성
+		imgs[i].src=files[i];		//이미지 로딩을 지시한 것임
+		
+	}
+	var next=1;
+	function change(img) {
+		img.src=imgs[next].src;
+		next++;
+		next%=imgs.length;
+	}
+
+</script>
+</head>
+<body>
+	<h3>new Image()로 이미지 로딩</h3>
+	<hr>
+	<p>이미지를 클릭하면 다음 이미지를 보여줍니다.</p>
+	<img src="../img/스폰지밥.png" style="border: 20px ridge wheat" width="200" height="200" onclick="change(this)"> 
+</body>
+</html>

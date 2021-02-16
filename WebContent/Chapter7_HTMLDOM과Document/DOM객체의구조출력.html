@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- 
+	W3C에서 표준화한 DOM객체의 주요 공통 프로퍼티, 컬렉션, 메소드에 대해 알아보자.
+		: 아래 정리한 내용은 모든 DOM객체(HTML태그)가 공통으로 갖는다.
+			구	분			프로퍼티			설명
+	-----------------------------------------------------------------------------
+		기본					id				태그의 id속성 값
+		프로퍼티				style			style객체 대한 레퍼런스
+							lang			태그의 lang속성 값
+							title			태그의 title속성 값
+							tagName			태그의 이름 문자열, 항상 대문자로 표시된다.
+							innerHTML		시작태그와 종료태그 사이의 HTML텍스트(콘텐츠)
+	----------------------------------------------------------------------------
+		DOM					parentElement		부모객체
+		트리					childelementCount	자식DOM객체개수
+		관련					firstElementChild	첫번째 자식 객체
+		프로퍼티				lastElementChild	마지막 자식객체
+							nextElementSbling	다음 형제 객체(오른쪽 형제)
+							previousElementsibling	 이전 형제 객체(왼쪽형제)
+	-----------------------------------------------------------------------------
+	크기와 위치					offsetHeight		패딩,테두리,스크롤바를 포함한 높이
+	프로퍼티					offsetWidth			패딩,테두리,스크롤바를 포함한 폭
+							offsetLefft			객체의 출력위치, 수평옵셋
+							offsetTop			객체의 출력위치, 수직옵셋
+	-------------------------------------------------------------------------------
+	공통 컬렉션					children			자식 DOM객체들의 컬렉션(자식들을 가르키는 레퍼런스 배열)
+	-----------------------------------------------------------------------------------
+	공통 메소드					addEventListener()	새로운 이벤트 리스너 등록
+							appendChild()		마지막 자식 뒤에 새로운 자식추가
+							click()				사용자가 마우스를 클릭한 것과 동일한 작업수행
+							focus()				키 입력을 받을 수 있또록 이객체에 포커스를 지정
+							setAtrribute()		속성추가
+							insertBefore()		지정된자식 앞에 새 자식을 추가
+							querySelector()		지정된 CSS3 셀렉터와 일치하는 첫번째 자식
+							removeChild()		자식삭제
+							replace()			자식대체
+							removeEventListener() 	addEventListener()로 등록한 이벤트 리스너 제거
+							getAtrribute()		속성 알아내기
+	---------------------------------------------------------------------------------	
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>DOM객체 p의 프로퍼티, 스타일, 이벤트리스너</h3>
+	<hr>
+	<p id= "firstP" style="color: blue; background : yellow;" onclick="this.style.color='teal'">
+	이것은<span style="color:red;">문장입니다.</span></p>
+	
+	<script type="text/javascript">
+		//DOM객체의 ID찾아서 객체변수에 저장
+		var p = document.getElementById("firstP");
+		//DOM객체의 아이디 속성값을 읽어온다
+		var text = p.id+"\n";
+		
+		text += "p.tagName= "+p.tagName+"\n";
+		text += "p.innerHTML= "+p.innerHTML+"\n";
+		text += "p.style.color = "+p.style.color+"\n";
+		text += "p.onclick = "+ p.onclick+"\n";
+		text += "p.childElementCount= "+p.childElementCount+"\n";
+		text += "너비= "+p.offsetWidth+"\n";
+		text += "높이 = "+p.offsetHeight+"\n";
+		
+		alert(text);
+		
+		
+		
+	</script>
+</body>
+</html>

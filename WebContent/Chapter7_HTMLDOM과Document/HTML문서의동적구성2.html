@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>이미지삭제 및 대체하기</h3>
+	<div id="p1">
+		<img src="../img/스폰지밥.png" width="100" height="100">
+		<img src="../img/뚱이.png" width="100" height="100" id="w1">
+		<img src="../img/스폰지밥.png" width="100" height="100">
+		<img src="../img/뚱이.png" width="100" height="100" id=w2>
+		<img src="../img/스폰지밥.png" width="100" height="100">
+		<img src="../img/뚱이.png" width="100" height="100">
+		<img src="../img/스폰지밥.png" width="100" height="100">
+		<img src="../img/뚱이.png" width="100" height="100">
+	</div>
+	<button type="button" onclick="del()">두번째삭제</button>
+	<button type="button" onclick="rep()">네번째교체</button>
+	<script type="text/javascript">
+		//삭제	removeChild()
+		function del() {
+			var deletedTag = document.getElementById("w1");
+			deletedTag.parentNode.removeChild(deletedTag);	
+		}
+		
+		//교체
+		function rep() {
+			var newTag = document.createElement("img");
+			newTag.setAttribute("src", "../img/스폰지밥.png")
+			newTag.setAttribute("width", "60px");
+			newTag.setAttribute("height", "60px");
+			
+			var repTag = document.getElementById("w2");
+			/* var parent=document.getElementById("p1");
+			parent.replaceChild(newTag, repTag); */
+			repTag.parentNode.replaceChild(newTag, repTag); 
+			
+			
+		}
+		
+		
+	</script>
+</body>
+</html>

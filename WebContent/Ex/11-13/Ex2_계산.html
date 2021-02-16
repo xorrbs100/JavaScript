@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- onclick 이벤트로 함수를 생성호출 or 직접처리 -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function answer1() {
+		var a= 2+4;
+		var w = document.getElementById("1");
+		w.innerHTML=a
+	}
+	function answer2() {
+		var a= 4*20;
+		var w = document.getElementById("2");
+		w.innerHTML=a
+	}
+	function answer3() {
+		var a= 20/5-8*2;
+		var w = document.getElementById("3");
+		w.innerHTML=a
+	}
+
+</script>
+</head>
+<body>
+	<h3>계산해봅시다</h3>
+	<hr>
+	<!-- 외부처리 -->
+<!-- 	<p>2+4 = <span id="1" onclick="answer1()">답</span></p>
+	<p>4*20 = <span id="2" onclick= "answer2()">답</span></p>
+	<p>20/5-8*2 = <span id="3" onclick="answer3()">답</span></p> -->
+	<!-- 내부에서처리 -->
+	<p>2+4 = <span onclick="this.innerHTML=eval(2+4)">답</span></p>
+	<p>4*20 = <span id="2" onclick= "this.innerHTML=eval(4*20)">답</span></p>
+	<p>20/5-8*2 = <span id="3" onclick="this.innerHTML=eval(20/5-8*2)">답</span></p>	
+</body>
+</html>

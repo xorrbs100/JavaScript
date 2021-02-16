@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--  
+	1. Canvas태그
+		: HTML5에서는 웹 페이지에 캔버스 영역을 만드는 <canvas>태그를 도입하였따.
+		. 브라우저는 <canvas>태그가 만들엉진 영역에 사각형의 빈 캔버스 공간을 할당한다.
+		. 하나의 웹페이지에 여러개의 캔버스를 만들 수 있다.
+	
+	2. Canvas태그
+		<canvas id = "캔버스 객체id"
+				style = "CSS3 스타일 시트"
+				width = "폭"
+				height="높이">
+				
+				이 태그가 지원하지 않는 브라우저가 출력할 HTML텍스트
+		</canvas>
+		
+	3. Canvas 객체와 Context객체
+		1)	<canvas>태그를 찾아서 DOM객체를 얻어낸다.
+				.var canvas = document.getElementById("myCanvas");
+				
+		2) Canvas 객체로 부터 그림을 그리는 도구(rendering tool)를 Canvas 객체의 getContext()메소드를 통해 얻어낸다
+			이 도구는 CAnvas context또는 Context라고 부른다.
+			
+			. var context = canvas.getContext("2d");
+			
+			. getContext("2d")가 리턴한 객체는 2차원 그래픽에 사용되는 프로퍼티와 메소드를 가진
+				CanvasRenderingContext2D 타입의 객체 (이름이 길므로 간단히 Context객체)이다.
+				
+	4. Canvas 객체의 프로퍼티와 메소드
+	
+			멤버		속성		설명
+		---------------------------------------
+		width		프로퍼티	캔버스의 폭, 픽셀값, 읽기 쓰기 가능
+		height		프로퍼티	캔버스의 높이, 픽셀값, 읽기 쓰기 가능
+		style		프로퍼티	캔버스의 CSS3스타일 시트 객체
+		getContext()메소드	캔버스에 그림을 그리는 컨텍스트 객체리턴
+		
+	5. 캔버스에 그리는 방법 2가지 유형
+	
+		첫번째 방법 :	1) beginPath()를 호출하여 빈 경로를 만들고
+					2) 경로(path)에 선, 원, 사각형등의 도형을 모아놓고(생성하고)
+					3) 한번에 캔버스에 그림을 그리는 방법 >> fill(), stroke()
+		두번째 방법 :	경로에 담지 않고 바로 캔버스에 그리는 방법
+		
+	6. Context 객체의 프로퍼티
+		
+			프로퍼티			설 명
+	----------------------------------------
+		strokeStyle			선색
+		fillStyle			채우기색
+		lineWidth			도형의 선 두께, 픽셀단위
+		font				텍스트 폰트
+		textAlign			텍스트 정렬방식
+	----------------------------------------
+
+			메소드			특징				설 명
+	---------------------------------------------------------------------------------
+		beginPath()			경로와 관련			이전 경로를 모두 지우고 새로 시작한다.
+		closePath()			경로와 관련			경로의 끝점과 시작점을 연결하는 선을 추가하고 경로를 닫는다
+		moveTo()			경로와 관련			경로의 새로운 점을 만든다.
+		lineTo()			경로와 관련			경로의 끝 점과 연결하는 선을 추가한다.
+		rect()				경로와 관련			경로에 사각형을 추가한다.
+		arc()				경로와 관련			경로에 원호를 추가한다.
+	----------------------------------------------------------------------------------
+		(한번에그리기)
+		fill()				경로에 있는 도형캔버스 그리기	경로에 만들어진 모든 도형(사각형과 원호)를 외곽선 없이 내부만 색으로 채워 캔버스에 그린다.
+		stroke()			경로에 있는 도형캔버스 그리기	경로에 담겨있는 모든 도형을 외곽선만 캔버스에 그린다.
+	------------------------------------------------------------------------------------
+		(직접그리기)
+		clearRect()				캔버스에 바로 그리기		캔버스에서 사각형 영역을 비운다.
+		fillText()				캔버스에 바로 그리기		캔버스에서 텍스트를 바로 그린다.
+		fillRect()				캔버스에 바로 그리기		캔버스에 외곽선 없이 사각형 영역을 색으로 바로 칠한다.
+		strokeRect()			캔버스에 바로 그리기		사각형을 경로에 추가하지 않고 캔버스에 바로 그린다.
+		strokeText()			캔버스에 바로 그리기		텍스트(문자열)를 캔버스에 바로 그린다.
+		drawImage()				캔버스에 바로 그리기		이미지를 캔버스에 바로 그린다.
+	
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>캔버스</title>
+<script type="text/javascript">
+	
+
+</script>
+</head>
+<body>
+	<h3>3개의 컨버스 만들기</h3>
+	<hr>
+	<canvas	id="canvas1" width="150" height="100" style="background-color: lightblue">	
+	</canvas>
+	
+	<canvas id="canvas2" width="150" height="100" style="background-color: violet">
+	</canvas>
+	
+	<canvas id="canvas3" width="300" height="100" style="background-color: yellow">
+	</canvas>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- 반복문활용 정수5개 입력받아 배열에 저장하고 배열출력 , 역순으로 재정렬 후 출력 -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	document.write("<h3>정수 5개 입력받아 역순으로 출력</h3><hr>입력된 수의 배열<br>")
+	var values=new Array(5);
+	var i=0;
+	do {
+		
+		var r=parseInt(prompt("정수 5개를 입력해주세요"," "));
+		values[i]=r;
+		i++;
+		if(i==5){
+			break;
+		}
+	} while (i!=5);{
+	}
+	for(i=0;i<values.length;i++){
+		document.write(values[i]+"  ");
+		
+	}
+	document.write("<hr> 역순으로 재정렬된 배열");
+	values.reverse();
+	for(i=0;i<values.length;i++){
+		document.write(values[i]+"  ");
+		
+	}
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

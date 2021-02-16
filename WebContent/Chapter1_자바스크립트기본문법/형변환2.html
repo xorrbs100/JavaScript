@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- 
+	형변환메소드		기능				예
+	------------------------------------
+	String()	수치값을 문자열로 변환		String(123)->"123"
+	toString()	수치값을 문자열로변환		(123).toString()->"123"
+	
+	Number()	문자열을 수치로 변환		Number("3.14")->3.14
+									Number("88")->88
+	ParseInt()	정수또는 숫자로 구성된		parseInt("92")->92
+				문자열을 실수로 변환함
+	parseFloat()문자열->실수로 변환		parseFloat("3.14")->3.14
+	Boolean()	비논리형 값을 논리형으로	Boolean(0)->false
+									Boolean(3.14)->true
+
+	
+	
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>Type Conversion</h3>
+	<hr>
+	<script type="text/javascript">
+		var num1=3.145, num2=20, num3=100;
+		var str1="58", str2="3.678", str3="javascript";
+		var flag1=true, flag2=false;
+		//형변환
+		document.write(str1+num2+"<br>");
+		document.write(Number(str1)+num2+"<br>");
+		document.write(parseInt(str1)+num2+"<br>");
+		document.write(parseInt(str2)+num2+"<br>");
+		document.write(parseInt(str3)+num2+"<br>");
+		document.write(parseFloat(str2)+num2+"<br>");
+		document.write(parseInt(num1)+num2+"<br>");
+		document.write(num2+num3+"<br>");
+		document.write(num2+num3.toString()+"<br>");
+		document.write(Boolean(num2)+num3.toString()+"<br>");
+		document.write(str3+Number(flag1)+"<br>");
+		document.write(str3+Number(flag2)+"<br>");
+		
+	</script>
+</body>
+</html>

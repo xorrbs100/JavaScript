@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	span {
+	font-size: 20px;
+	font-style: italic;
+	color: red;
+	}
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var n = prompt("0보다 큰 정수를 입력해주세요.","");
+		n = parseInt(n);
+		document.write("<h3>while문으로 0에서 "+n+"까지 합</h3>");
+		document.write("<hr>")
+		
+		var i=0, sum=0;
+		while (i<=n) {
+			sum+=i;
+			i++
+		}
+		document.write("0~n까지의 합 : <span>"+sum+"</span>입니다")
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var n = 90;
+	function rotate(obj) {
+		//회전시키기
+		obj.style.transform="rotate("+n+"deg)";
+		n +=90;	//n에90씩추가
+		n %=360;
+	}
+
+</script>
+</head>
+<body>
+	<h3>클릭하면 90도 회전합니다.</h3>
+	<hr>
+	<img src="../../img/스폰지밥.png" width="100" height="100" onclick="rotate(this)">
+</body>
+</html>

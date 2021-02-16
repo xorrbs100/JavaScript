@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML동적 문서작성 연습</title>
+<script type="text/javascript">
+
+	var win=null;
+	function showHTML() {
+		if (win==null||win.closed()) {
+			win=window.open("새로운창","outWin","width=300, height=200");
+						
+		}	
+		//DOM객체를 가져와서
+		var textArea=document.getElementById("srcText");
+		//HTML텍스트 추가
+		win.document.open();
+		win.document.write("<html><head><style>body{background: yellow;}</style></head>");
+		win.document.write("<body>"+textArea.value+"</body></html>")
+		win.document.close();
+	}
+</script>
+</head>
+<body>
+	<h3>HTML문서 작성기 만들기</h3>
+	<hr>
+	<p>아래에 HTML문서를 작성하고 버튼을 클릭해보세요
+	새로운 윈도우에 HTML문서가 출력됩니다.</p>
+	
+	<textarea rows="10" cols="50" id="srcText">여기에 메모를 남겨주세요</textarea>
+	<br><br>
+	<button type="button" onclick="showHTML()">HTML문서출력버튼</button>
+	
+</body>
+</html>

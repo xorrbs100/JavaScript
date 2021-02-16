@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--  
+	네번째 방식 - 익명함수처리
+	
+	익명함수(anonymouse function)함수로 구현
+		- 함수 이름이 없다.
+		- 필요한 곳에 코드를 바로 작성해서 사용한다.
+		- 간략하고 직관적으로 사용하기 좋다.
+	
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	var p1,p2;
+	function init() {
+		
+		//배경색변경
+		p1=document.getElementById("p1");
+		p1.onmouseover = function () {
+			p1.style.backgroundColor="orange";	//마우스가 올라가면
+		}
+		p1.onmouseout=function(){
+			p1.style.backgroundColor="white";	//마우스가 벗어나면
+		}
+		//글자크기변경 
+		p2=document.getElementById("p2");
+		p2.addEventListener("click",bigsize);
+		
+		//리스너제거,글자크기정상
+		var b= document.getElementById("b");
+		b.onclick=function(){
+			p2.style.fontSize="1em";
+			p2.style.background="yellow";
+			//제거
+			p2.removeEventListener("click",bigsize);
+		}
+
+	}
+	function bigsize() {
+		p2.style.fontSize="3em";
+	}
+
+</script>
+</head>
+<body onload="init()">
+	<h3>익명함수로 이벤트 리스너 작성</h3>
+	<hr>
+	<p id='p1'>마우스 올리면 orange색으로 변경</p>
+	<p id='p2'>마우스를 클릭하면 글자 크기가 키워짐</p>
+	<hr>
+	<button type="button" id='b'>이벤트 제거</button>
+	
+</body>
+</html>

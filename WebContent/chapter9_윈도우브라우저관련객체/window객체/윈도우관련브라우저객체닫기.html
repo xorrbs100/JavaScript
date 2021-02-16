@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+   var newWin = null; //새로운 창의 주소 저장
+   function load(url) {
+      newWin = window.open(url,"myWin","left=300,top=300,width=400,height=300").moveTo(700,500);
+   }
+   function closeNewWindow() {
+      if(newWin== null || newWin.closed){
+         return;
+      }
+      else{
+         newWin.close(); //윈도우객체.close()
+      }
+   }
+
+</script>
+</head>
+<body>
+   <h3>window close()로 윈도우 닫기</h3>
+   <hr>
+   <a href="javascript:load('http://www.disneyworld.com')">새 윈도우 열기(디즈니 월드)</a><br>
+   <a href="javascript:window.close()">현재 윈도우 닫기</a><br>   <!-- 나를닫는다 -->
+   <a href="javascript:closeNewWindow()">새 윈도우 닫기</a>      <!-- 새창을 닫는다 -->
+</body>
+</html>

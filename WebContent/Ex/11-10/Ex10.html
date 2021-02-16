@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- 난수10개 배열에저장 배열출력 -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var arr=new Array(10);
+	var max=0;
+	for(i=0;i<arr.length;i++){
+		arr[i]=parseInt(Math.random()*99)+1
+		document.write(i+"번째 방 : "+arr[i]+"  ");
+		if(arr[i]>max) {
+			max=arr[i];
+		}
+	}
+	
+	document.write("<hr>");
+	document.write("제일 큰 수는  : "+max);
+	document.write("<hr>");
+	arr.sort();
+	for(i=0;i<arr.length;i++){
+		document.write(arr[i]+"  ");
+		
+	}
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

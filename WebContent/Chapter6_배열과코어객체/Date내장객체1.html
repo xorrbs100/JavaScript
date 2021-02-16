@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- 
+	Data객체
+		: 사용자 시슴테의 날짜와 시간을 관리해 주는 객체
+		. 문ㄴ법
+			var 객체 변수명 = new Date();
+			- 매개변수 없이 설정: 시스템의 날짜와 시간입 ㅕㄴ수에 저장된다.
+			
+			var 객체 변수명 = new (년 월, 일, 시 분 초 밀리초);ㅔ
+			- 구체적으로 지정된 날씨와 시간이 변수에 저장된다
+			
+	메소드
+		. getFullYear()
+		. getMonth() - 0월부터 시작, 
+		. getDate() : 일표시
+		. getDay() : 요일표시 (일요일0~)
+		. getHoures()  : 시간(0~23)
+		. getMinutes() : 분(0~59)
+		. getSeconds() : 0~59
+		. getTime() : ...
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//1.객체생성
+	var date=new Date();
+	
+	//2. 활용
+	document.write("<p>현재 날짜/시간: ");
+	document.write("["+date.getFullYear()+"년");
+	document.write((date.getMonth()+1)+"월");
+	document.write(date.getDate()+"일");
+	
+	//3. 요일
+	switch (date.getDay()) {
+	case 0: document.write("&nbsp; 일요일 &nbsp;".fontsize(7).fontcolor("red"));break;
+	case 1: document.write("&nbsp; 월요일 &nbsp;".fontsize(7).fontcolor("blue"));break;
+	case 2: document.write("&nbsp; 화요일 &nbsp;".fontsize(7).fontcolor("blue"));break;
+	case 3: document.write("&nbsp; 수요일 &nbsp;".fontsize(7).fontcolor("blue"));break;
+	case 4: document.write("&nbsp; 목요일 &nbsp;".fontsize(7).fontcolor("blue"));break;
+	case 5: document.write("&nbsp; 금요일 &nbsp;".fontsize(7).fontcolor("blue"));break;
+	case 6: document.write("&nbsp; 토요일 &nbsp;".fontsize(7).fontcolor("blue"));break;
+	default:
+	break;
+	}
+	//4. AMPM
+	if(date.getHours()>12){
+		document.write("오후");
+		document.write(((date.getHours()-12)+"시").fontsize(6).fontcolor("red"));
+	}else {
+		document.write("오전");
+		document.write((date.getHours().toString().fontsize(6)+"시").fontcolor("red"));	
+	}
+	//분초
+	document.write(date.getMinutes()+"분");
+	document.write(date.getSeconds()+"초");
+	//닫기
+	document.write("]</p>");
+</script>
+</head>
+<body>
+
+</body>
+</html>

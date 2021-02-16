@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function changeInnerHTML() {
+		//외부에서 여행지를 입력받는다.
+		var dest = prompt("가고싶은 여행지를 입력해주세요", "");
+		
+		//만약 받은여행지가 null이거나 ""이면 return;
+		if(dest==null||dest==""){
+			return;
+		}
+		else{
+			var p = document.getElementById("1");
+			p.innerHTML+=dest+"<br>";
+			
+		}
+		//그렇지않으면 값을 설정(추가)한다.
+	}
+</script>
+</head>
+<body>
+	<h3>innerHTML</h3>
+	<hr>
+	<div onclick="changeInnerHTML(this)">
+		<p id="1">이번겨울에는 어디로 갈까요
+	</div>
+	
+</body>
+</html>

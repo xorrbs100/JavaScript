@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- 
+	방법2) 리터럴 표기법으로 객체만들기
+		: 중괄호를 이용해서 프로퍼티와 메소드를 한번에 작성할 수 있다.
+		: 메소드와 프로퍼티가 블록안에서 모두 만들어지기 때문에 가독성이 높다.
+		1) 객체변수를 선언하고
+		2) 프로퍼티 생성 및 초기화
+		3) 메소드를 작성
+			메소드이름:function(){};
+		4) 호출사용		
+		
+		리터럴 표기법으로 객체생성하기
+		. : 콜론으로 매칭시킨다.
+		. , 콤마로 구분한다.
+		. 함수는 내부에서 또는 외부에서 정의할 수 있다.
+		. 내부에서 정의시 함수명은 생략되거나 변수명과 달라도 무관하다.
+		. 함수를 외부에서 정의하고 내부에서 매칭시킬때 ()는 생략된다.
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//1. 객체명 선언하고 프로퍼티를 생성 초기화한다.
+	
+	var account = {
+		//프로퍼티 생성 및 초기화 ,콤마로 구분한다.
+		owner: "홍길동",
+		code : "1111",
+		balance : 35000,
+		//메소드 작성
+		inquiry: function() { return this.balance;},
+		deposit: function(money) {this.balance+=money;},
+		withdraw: function(money) {this.balance-=money; return money;}
+	};
+
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		document.write("예금주 : "+ account.owner+"<br>");
+		document.write("통장번호 : "+ account.code+"<br>");
+		document.write("잔액 : "+ account.balance+"<br><br>");
+		
+		account.deposit(10000);
+		document.write("입금후잔금 : "+account.inquiry()+"<br>");
+		
+		account.withdraw(5000);
+		document.write("출금후잔금 : "+account.inquiry()+"<br>"+"<br>");
+	
+	</script>
+</body>
+</html>

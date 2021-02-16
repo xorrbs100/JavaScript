@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//1.생성자함수 정의
+	function Student(name, dept, grade) {
+		//2. 프로퍼티생성
+		this.name=name;
+		this.dept=dept;
+		this.grade=grade;
+		//3. 메소드 설정
+		this.print=print; //외부에서정의
+	}
+	//메소드로 활용할 함수정의
+	function print() {
+		document.write(this.name+"은 "+this.dept+"학과 "+this.grade+"학년 학생 입니다.<br>");
+		
+	}
+	//4.객체생성
+	var s1 = new Student("임택균", "소프트웨어", "3");
+	var s2 = new Student("홍길동", "정보보안", "2");
+	//5. 메소드활용
+	s1.print();
+	s2.print();
+</script>
+</head>
+<body>
+
+</body>
+</html>

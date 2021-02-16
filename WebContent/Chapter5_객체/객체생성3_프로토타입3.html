@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//1. 생성자 함수생성
+	function ComFactory(cpuInfo,ramInfo,hddInfo) {
+		//2. 프로퍼티 생성
+		this.cpuInfo=cpuInfo;
+		this.ramInfo=ramInfo;
+		this.hddInfo=hddInfo;
+		//3. 메소드생성
+		this.toInfo=function() {
+			document.write("제조업체 : 한국전자 <br>")
+			document.write("시스템종류 : 64비트 운영체제<br>");
+		}
+		
+	}
+	//4. 객체활용
+	var speedCom = new ComFactory("2.8GHZ","2.0GB","1TB");
+	//프로퍼티 활용
+	var cpu=speedCom.cpuInfo;
+	var ram=speedCom.ramInfo;
+	
+	document.write(cpu+"<br>");
+	document.write(ram+"<br>");
+	//메소드활용
+	speedCom.toInfo()
+	
+	
+</script>
+</head>
+<body>
+</body>
+</html>

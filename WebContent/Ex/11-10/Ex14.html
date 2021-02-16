@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문자열 배열 다루기</title>
+<script type="text/javascript">
+
+	function printArray(array) {
+		for(i=0;array.length;i++){
+			document.write(array[i]+" ");
+		}
+		document.write("<br>");
+
+	}
+	var name=new Array("강감찬","홍길동","이순신","을지문덕");
+	//배열출력
+	document.write("이름 : ");	
+	printArray(name);	//함수호출
+	
+	//가장 긴 이름 출력
+	var longest=name[0]; //우선 첫번째를 가장 길다고 가정
+	for(i=1;i<name.length;i++){
+		if(name[i].length > longest){
+			longest=name[i];}
+	}
+	document.write("가장 긴 이름 : "+ longest+"<br>");
+	//가장 먼저 나오는 이름
+	var pre = name[0];
+	for(i=1;i<name.length;i++){
+		if(name[i]<pre){
+			pre=name[i];
+		}
+		
+	}
+	document.write("가장 먼저 나오는 이름 : "+pre+"<br>");
+	//증가순 정렬 ,함수이용 출력
+	name.sort();
+	printArray(name)
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

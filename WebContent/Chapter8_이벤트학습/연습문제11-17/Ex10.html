@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	var text=["멋진 바베큐 파티를 재욱이가 쏩니다.","재욱이가 전체 소개팅을 주선합니다.", "2021년 자격증시험일정을 미리 조사한다", "이력서와 자기소개서를 미리 준비한다." ];
+	var commentDiv;
+	
+	function init() {
+		commentDiv= document.getElementById("commentDiv");
+		var liArray= document.getElementsByTagName("li");
+		for(i=0;i<liArray.length;i++){
+			liArray[i].addEventListener("mouseover",over,false);
+			liArray[i].addEventListener("mouseout",hideCommentDiv,false);
+		}
+	}
+	function over(e) {
+		var n=0;
+		switch (e.target.id) {//n값설정	- 배열의 인덱스번호로 활용
+		case "l0" : n=0; break;
+		case "l1" : n=1; break;
+		case "l2" : n=2; break;
+		case "l3" : n=3; break;
+		default:
+			break;
+		}
+		//문구 매칭
+		setCommentDiv(text[n], e);
+	}
+	//설명코멘트창 만들기
+	function setCommentDiv(comment,e) {
+		commentDiv.innerHTML= comment;				//설명문구 설정
+		commentDiv.style.left= e.clientX+"px";		//위치설정
+		commentDiv.style.top= e.clientY+"px";		
+		commentDiv.style.border="1px solid yellow";	//테두리선지정
+		commentDiv.style.background="aliceblue";	//배경색지정
+		commentDiv.style.visibility="visible";	//보여지게
+		commentDiv.style.width="200px";			// 크기지정
+		commentDiv.style.height="80px";			
+	}
+	//설명창가리기-onmouseout
+	function hideCommentDiv() {
+		commentDiv.style.visibility="hidden";
+	}
+</script>
+</head>
+<body onload="init()">
+	<h3>아이템에 마우스를 올리면 설명추가</h3>
+	<hr>
+	<p>연말에 하고싶은 이벤트들</p>
+	<ul>
+		<li id="l0">친구들과 파티하기
+		<li id="l1">이성친구 만들기
+		<li id="l2">내년도 계획설계하기
+		<li id="l3">취업하기
+	</ul>
+	<div id="commentDiv" style="position: absolute;"></div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- 
+	Math객체
+		: 수학과 관련된 객체
+		. 정적객체로String처럼 new연산자를 사용하지 않는다.
+		. Math.속성/Math.메소드()와 같은 형태로 사용한다.
+		
+		. 주요프로퍼티
+			- E : 자연로그 밑에 사용되는 오릴러 상수 (약 2.718)
+			- LN10 : 10의 자연로그 (약2.032)
+			- LN2 : 2의 자연로그(약 0.693)
+			- PI : 원주율(약 3.14)
+			- SQRT1_2: 1/2의 제곱근 (약 0.707)
+			- SQRT2 : 2의 제곱근 (약 1.414)
+		. 주요메소드
+			- ceil(n) : 올림
+			- floor(n) : 버림/내림
+			- round(n) : 반올림
+			- max(n,m) : 둘중큰수
+			- min(n,m) : 둘중작은수
+			- pow(n,m) : n의 m승
+			- exp(n) : e의 n승
+			- abs(n) : 절대값
+			- sqrt(n) : 제곱근
+			- sin(n), cos(n), tan(n)...
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var exp = new Array();
+	var op = new Array("abs(-2.1)","ceil(3.45)","floor(4.45)","round(3.45)"
+			,"max(5,7)","min(5,7)","pow(3,4)","sqrt(6)","PI","sqrt2");
+	
+	//Math함수활용한초기화
+	exp[0]=Math.abs(-2.1);
+	exp[1]=Math.ceil(3.45);
+	exp[2]=Math.floor(3.45);
+	exp[3]=Math.round(3.45);
+	exp[4]=Math.max(5,7);
+	exp[5]=Math.min(3,4);
+	exp[6]=Math.pow(3,4);
+	exp[7]=Math.sqrt(6);
+	exp[8]=Math.PI;
+	exp[9]=Math.SQRT2;
+	
+	//랜덤변수활용
+	var n = Math.floor((Math.random()*10)+1);
+	document.write(n+"<br>");
+	
+	//두개의 배열에서 같은 인덱스값으로 호출하여 출력해보기
+	for(i=0;i<exp.length;i++){
+		
+		document.write("<br>Math객체의"+op[i]+"를 적용한 연산결과 : "+exp[i]+"<br>");
+		
+		
+	}
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

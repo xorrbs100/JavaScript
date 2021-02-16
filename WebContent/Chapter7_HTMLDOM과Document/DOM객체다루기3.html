@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function changeContent() {
+		var pTag= document.getElementById("p1");
+		var text="이제부터 자바스크립트의 중요한 부분을 학습합니다."
+		text=text+"<br><hr>";
+		text =text+"<img src='../img/스폰지밥.png' width=150; height=100><hr>";
+		text=text+"<p>즐겁게 열심히 합시다! 그래도 졸려</p>";
+		pTag.innerHTML = text;
+	}
+</script>
+</head>
+<body>
+	<h2>Web Programming!</h2>
+	<p id="p1">지금까지는 HTML/CSS 그리고 자바스크립트의 기본을 학습하였습니다.</p>
+	<button type="button" onclick="changeContent()">Next</button>
+
+</body>
+</html>

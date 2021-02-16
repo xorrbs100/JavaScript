@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--  
+	폼 요소에는
+		. 키관련 이벤트
+		. 포커스 관련 이벤트
+		. change이벤트 등 많은 이벤트가 발생한다.
+		
+	그중에서 첫번째
+	1. onfocus <-> onblur
+		- 이것들은 포커스가 변경될 때 호출된다.
+		- 포커스는 키 입력에 대한 독점권을 갖는다.
+		- 한쪽이 포커스를 가지면, 누군가는 포커스를 잃는다.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>폼이벤트활용1_focus</title>
+<script type="text/javascript">
+	function checkFilled(obj) {
+		if(obj.value==""){
+			alert("이름을 적어주세요");
+			obj.focus();
+		}
+	}
+
+</script>
+</head>
+<body>
+	<h3>onfocus와 onblur</h3>
+	<hr>
+	<p>이름을 입력하지 않고 다른 창으로 이동할 수 없습니다.</p>
+	<form action="">
+		이름<input type="text" id="name" onblur="checkFilled(this)"><br>
+		학번<input type="text">
+	</form>
+	
+</body>
+</html>

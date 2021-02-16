@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- 
+   앞에 문제를 보완하여, 처음부터 사칙연산 문제를 
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+   
+   //남은 시간 변수 설정
+   var timeleft = 10;   
+ 
+   //onload 혹은 '다시'로 생성된 문제 붙임
+   function ab() {   
+      var ex = document.getElementsByClassName("ex");
+      for(i=0;i<ex.length;i++){
+         ex[i].innerHTML = makeEx();
+         ex[i].style.textDecoration = "none";
+         
+         // 나눗셈 지저분해서 뺌
+         /* while(eval(ex[i].innerHTML) == Infinity ||eval(ex[i].innerHTML) == -Infinity)
+            ex[i].innerHTML = makeEx(); */
+      }
+      timeleft = 10;
+      timer();
+   }
+   
+   //연산자 생성 함수
+   function getOper() {
+      var a = ["+","-","*","/"];
+      var k = Math.floor(Math.random()*3);
+      
+      // 나눗셈 지저분해서 뺌
+      //var k = Math.floor(Math.random()*4);
+      return a[k];
+   }
+   
+   //문제 생성 함수 
+   function makeEx() {
+      var str = '';
+      var count = Math.floor(Math.random()*3+1);      
+      for(j=0;j<count;j++){
+         str += Math.floor(Math.random()*9+1)+getOper()
+      }
+         str += Math.floor(Math.random()*9+1);
+         return str;
+   }
+   
+   //답 판별 함수
+   function OX() {
+      var ex = document.getElementsByClassName("ex");
+      var ans = document.getElementsByClassName("ans");
+      var scr = 0;
+      for(u=0;u<ex.length;u++){
+         var an = ans[u].value;
+         if(eval(ex[u].innerHTML) == parseInt(an)) scr++;
+         else ex[u].style.textDecoration = "line-through";
+         }
+         document.getElementById("cor").innerHTML = scr;
+         clearTimeout(timeStart);
+   }
+   
+   //timer 함수
+      
+   function timer() {
+      time = document.getElementById("time");
+      timeleft--;
+      time.innerHTML = timeleft;
+      timeStart = setTimeout("timer()", 1000);
+      if(timeleft <= 0) {
+         OX();
+      }
+      
+   }
+
+</script>
+</head>
+<body onload="ab()">
+   <h3>산수 문제를 풀어 봅시다</h3>
+   수식을 계산하여 답을 입력하고 채점버튼을 누르세요.<br>
+   남은시간:<p id="time"></p>
+   <hr>
+   <form action="">
+      
+      <table>
+         <tr> <td class="ex"></td><td><input class="ans" type="text" size="8" value=""></td></tr>
+         <tr> <td class="ex"></td><td><input class="ans" type="text" size="8" value=""></td></tr>
+         <tr> <td class="ex"></td><td><input class="ans" type="text" size="8" value=""></td></tr>
+         <tr> <td class="ex"></td><td><input class="ans" type="text" size="8" value=""></td></tr>
+         <tr> <td><button type="button" onclick="OX()">채점</button></td><td><span id="cor">0</span>
+         &nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="ab()">다시</button> </td></tr>
+      </table>
+   </form>
+</body>
+</html>

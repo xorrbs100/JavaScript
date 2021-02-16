@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--  
+	: 브라우저는 
+		1) HTML 문서를 로드하기전에 빈 상태의 document객체를 생성합니다.
+		2) HTML 문서를 위에서 아래로 해석하면서 태그들을 document객체에 담는다.
+		3) 이 태그들을 이용해서 DOM트리를 작성합니다.
+		4) </html>태그를 만나면 document 객체를 완성하고 닫습니다.
+		
+	. write() 
+		- 현재 document객체에 담긴 내용의 끝에 HTML텍스트를 추가하는 코드입니다.
+		- 추가되는 HTML텍스트는 DOM객체로 바뀌고 DOM트리에 추가연결 됩니다.
+		- 그 결과물로 삽입된 HTML텍스트가 브라우저 화면에 출력되는 것입니다.
+		
+		* document.write()는 document객체가 닫히기 전까지만 실행가능합니다.
+		
+	. writeln()
+		- 줄바꿈이 되는 것이 아니라... HTML텍스트에 '\n' 공백문자 한개로 처리할 뿐이다.
+-->
+
+
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>write()와 writeln()활용</h3>
+	<hr>
+	<script type="text/javascript">
+		//write()--document객체와 콘텐츠를 추가합니다.
+		document.write("<h3>동물원으로 가을단풍 소풍을 갑니다</h3>");
+		document.write("<p style='color:blue'>날씨가 좋아");
+		document.write("소풍을 갑니다.</p>")
+		
+		//writeln()
+		document.writeln(5);
+		document.writeln("명 입니다")
+		
+	</script>
+</body>
+</html>

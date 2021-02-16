@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--  
+	1. 이벤트 객체에 들어 있는 정보
+		. 이벤트에 관한 정보를 담고 있는 프로퍼티
+		. 이벤트의 흐름등을 제어하는 여러 메소드
+		
+		* 이벤트마다 약간씩 다르지만.. 공통의 멤버는 아래와 같다.
+		
+			종류					멤버				설명
+		--------------------------------------------------------------------
+		type				프로퍼티			현재 발생한 이벤트의 종류를 나타내는 문자열	
+		target				프로퍼티			이벤트를 발생시킨 객체(DOM객체, HTML태그)
+		currentTarget		프로퍼티			현재 이벤트 리스너를 실행하고 있는 DOM객체
+		defaultPrevented	프로퍼티			이벤트의 디폴트 행동이 취소되었는지를 나타내는 true/false
+		preventDefault()	메소드			이벤트의 디폴트 행동을 취소시키는 메소드 - 기본행동을 취소
+		-------------------------------------------------------------------		
+	2. 디폴트 행동 취소처리
+		. 디폴트 행동이란?
+			<a> : 클릭하면 웹페이지를 로드하는 디폴트 행동
+			<submit> : 클릭하면 폼데이터를 웹서버로 전송하는 디폴트 행동
+			<reset> : 클릭하면 폼을 초기화 하는 디폴트 행동
+			<input type="checkbox"> : 클릭하면 체크가 되는 디폴트 행동 등등
+		. 방법1 : HTML태그내에서 이벤트리스너를 생성할 때 "return false"로 처리
+		. 방법2 : preventDefault() 메소드를 호출해 주는 방법
+		
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	function query() {
+		var answer = confirm("네이버로 이동하시겠습니까?", "");		//confirm = true false 값 반환 ,확인창
+		return answer;
+	}
+	function noAction(e) {
+		e.preventDefault();			//이벤트의 디폴트행동을 강제로 취소시킴.
+	}
+
+</script>
+</head>
+<body>
+	<h3>디폴트 행동취소 방법1,2</h3>
+	<hr>
+	<a href="http://www.naver.com" onclick="return query()">네이버로 이동할지 물어보는 링크</a>
+	<hr>
+	<form >
+		<input type="checkbox">빵(체크됨)<br>
+		<input type="checkbox" onclick="noAction(event)">술(체크 안됨)<br>
+	</form>
+	
+</body>
+</html>

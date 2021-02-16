@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- 방문 요일에 따라 변하는 배경색 지정 -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var week= ["일","월","화","수","목","금","토"];
+	var current = new Date();
+	switch (current.getDay()) {
+	case 0: {document.write("오늘은 "+current.getDay()+"일요일"+current.getDate()+"일 입니다");
+	document.body.style.backgroundColor="pink";}break;
+	case 1: {		document.write("오늘은 "+"월요일"+current.getDate()+"일 입니다");
+	document.body.style.backgroundColor="gold";}break;
+	case 2:  {		document.write("오늘은 "+"화요일"+current.getDate()+"일 입니다");
+	document.body.style.backgroundColor="gold";}break;
+	case 3: {		document.write("오늘은 "+"수요일"+current.getDate()+"일 입니다");
+	document.body.style.backgroundColor="gold";}break;
+	case 4: {		document.write("오늘은 "+"목요일"+current.getDate()+"일 입니다");
+	document.body.style.backgroundColor="gold";}break;
+	case 5: {		document.write("오늘은 "+"금요일"+current.getDate()+"일 입니다");
+	document.body.style.backgroundColor="gold";}break;
+	case 6:  {		document.write("오늘은 "+"토요일"+current.getDate()+"일 입니다");
+	document.body.style.backgroundColor="gold";}break;
+	default:
+	break;
+	}
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

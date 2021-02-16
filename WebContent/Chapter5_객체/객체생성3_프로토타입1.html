@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- 
+	프로토타입으로 객체생성하기
+	
+		. 함수를 내부외부 어디에서 정의하든 상관없다.
+		. 내부에서 함수를 정의할 경우 함수명은 생략되거나 변수명과 달라도 무관하다.
+		. 함수속의 객체변수와 함수변수는 this를 반드시 붙여야 한다.
+			만약, this를 생략하면 함수의 전역변수로 취급되어 객체를 여러번 생성시에
+			최종 입력값으로 모두 동일하게 출력됨을 볼 수 잇다.
+		
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//1. 생성자함수정의
+	function Student(name,dept,grade) {   //함수의 이름을 대문자로
+		//속성정의
+		this.name=name;
+		this.dept=dept;
+		this.grade=grade;
+	}
+	
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		//2.객체생성
+		var s1 = new Student("홍길동","컴퓨터학과","2학년");
+		var s2= new Student("성춘향","가정학과","1학년");
+		//3. 내장객체 활용
+		var cDate=new Date();
+		//활용
+		document.write("("+(1900+cDate.getYear())+"년"+(cDate.getMonth()+1)+"월"+(cDate.getDate())+"일 현재)<br><br><br>");
+		document.write("<hr>");
+		document.write(s1.name+"은 "+s1.dept+" "+s1.grade+"학년 학생입니다.<br>");
+		document.write(s2.name+"은 "+s2.dept+" "+s2.grade+"학년 학생입니다.<br>");
+		
+	</script>
+	
+</body>
+</html>

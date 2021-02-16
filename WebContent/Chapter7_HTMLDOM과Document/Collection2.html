@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--  
+	forms[], elements[] 컬렉션을 활용한 입력폼 구현	
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+	<form name="stuInfo">
+		학과 : <input type="text" name="dept">&nbsp;&nbsp;&nbsp;&nbsp;
+		이름 : <input type="text" name="sName">
+		<hr>	
+	</form>
+	<form name="q1">문제1. 다음중 HTML5 프로그래밍에서 다루는 내용이 아닌것은?<br>
+		<input type="radio" name="p1" value="1">HTML<br>
+		<input type="radio" name="p1" value="2">CSS3<br>
+		<input type="radio" name="p1" value="3">JavaScript<br>
+		<input type="radio" name="p1" value="4">PHP<br><br>
+	</form>
+	<form name="q2">문제2. 다음중 그 성격이 다른 프로그램은 ?<br>
+		<input type="radio" name="p2" value="1">사파리<br>
+		<input type="radio" name="p2" value="2">파워포인트<br>
+		<input type="radio" name="p2" value="3">파이어폭스<br>
+		<input type="radio" name="p2" value="4">크롬<br>		
+	</form>	
+	<button type="button" onclick="computeScore()">채점(10점 만점)</button>
+	<span id="result"></span>
+	<script type="text/javascript">
+		function computeScore() {
+			
+			var answer=[4,2]; //정답배열
+			var choice= new Array();
+			var sname=document.stuInfo.sName.value; //이름저장
+			var noti= document.getElementById('result');
+			
+			//계산
+			
+			var socore=0;
+			//체크한 번호 읽어오기
+			choice[0]=document.forms[1].p1.value;
+			choice[1]=document.forms[2].p2.value;
+			for(i=0;i<2;i++){
+				if(parseInt(answer[i])==parseInt(choice[i])){
+					score=score+5;
+				}
+				
+			}
+			noti.innerHTML=sname+": "+score+"점 입니다.";
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--  
+	1. 이벤트객체의 흐름
+		: 이벤트가 발생하면.....
+			window-> document -> html -> body -> ~~~~~ ->target
+									  -> head - > ~~~~~->를 타고 타깃객체에 이벤트가 전달된다.
+		: 다시 반대방향으로 DOM트리를 타고 올라온 다음에 window객체에 도달한 후 이벤트 객체는 사라진다.
+	
+	2. 위의 과정을 2단계로 나누어 표준화 했다(w3c)
+	
+		1) 캡쳐단계 (capturing phase)
+			. window에서 타깃 객체까지 이벤트 객체가 전파되는 과정
+			. 캡쳐단계에서 실행되도록 작성된 이벤트 리스너(캡쳐리스너)가 있다면 흐름순으로 실행된다.
+		
+		2) 버블단계(bubbling phase)
+			. 타깃객체에서 window 까지 이벤트 객체가 전파되는 과정
+			. 버블단계에서 실행되도록 작성된 이벤트 리스너(버블리스너)가 있다면 순서대로 실행된다.
+			
+		* DOM객체는 동일한 이벤트에 대해 캡쳐리스너와 버블리스너를 모두 가질 수 있다.
+		* 모든 이벤트에 대해 캡쳐 단계는 항상 있지만, 이벤트에 따라 버블단계는 생략되기도 한다.
+			버블단계가 생략되는 대표적인 이벤트 : focus, blur
+	3. 	캡쳐리스너와 버블리스너 지정방법
+		
+		방법1. addEventListener("이벤트명", 리스너함수, true/false)
+				- 캡쳐리스너 : true로 지정한다 - 캡쳐단계에서 실행
+				- 버블리스너 : false로 지정한다 - 버블단계에서 실행
+		방법2. 리스너를 방법1외에 다른 방법으로 지정하면 모두 버블리스너로 자동지정된다.
+	4. Event객체의 멤버중 이벤트의 흐름과 관련된 멤버
+			멤버						종류				설명
+		----------------------------------------------------------------------------
+		cancelable					프로퍼티			디폴트 행동취소 가능한 이벤트 여부
+		stopPropagation()			메소드			객체에 등록된 리스너들 모두 실행 후 이벤트 흐름 중단
+		stopImmediatePropagation()	메소드			현재 리스너만 실행하고 이벤트흐름 즉각 중단
+		----------------------------------------------------------------------------
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 흐름</title>
+</head>
+<body>
+	<p>이것은 <span>문장입니다.</span></p>
+	<form>
+		<input type="text" name="s">
+		<input type="button" value="test" id="button">
+		<hr>
+	</form>
+	<div id="div" style="color: green;"></div>
+	
+<!--  
+	DOM트리를 작성하시오
+	
+				window
+				   |
+				document
+			       |
+				  html	
+			--------------------
+		   head  (clickevent:캡쳐)body (click이벤트: 버블)
+		   |				  	|	
+	    meta title          p  form		div
+	    						|
+	    					-----------------
+	    					|		 |		|
+	    				input		input	hr
+	    							타깃
+	    								
+-->	
+<script type="text/javascript">
+	var div= document.getElementById("div"); //출력할 공간
+	var button = document.getElementById("button");	//이 버튼 클릭(타겟)
+	//body객체에 캡쳐 리스너 등록
+	document.body.addListener("click",capture,true);	//캡쳐단계(1)
+	
+	//target객체에 버블 리스너 등록
+	button.addListener("click",bubble, false);	 	//버블단계(2)
+	
+	//body객체에 버블 리스너 등록
+	document.body.addEventListener("click",bubble,false); //버블단계(3)
+	
+	function capture(e) {
+		var obj = e.currentTarget; //현재 이벤트 리스너를 실행하고 있는 DOM객체
+		var tagName = obj.tagName;	//태그이름
+		div.innerHTML+="<br>capture단계 : "+ tagName+"태그"+e.type+"이벤트";
+	}
+	function bubble(e) {
+		var obj = e.currentTarget;  //현재 이벤트 리스너를 실행하고 있는 DOM객체
+		var tagName = obj.tagName;	//태그이름
+		div.innerHTML+="<br>버블단계 : "+ tagName+"태그"+e.type+"이벤트";
+	}
+
+</script>
+	
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

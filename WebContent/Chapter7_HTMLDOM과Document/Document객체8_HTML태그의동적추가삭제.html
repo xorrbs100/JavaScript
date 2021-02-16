@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- <div id="myDiv">새로생성된 DIV입니다 환영해주세요
+	추가 : 추가버튼을 누르면 추가
+		배경색 노란색 글자크기20 굵게
+		삭제: 삭제버튼을 누르면 삭제
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 	function addDOM() {
+		var newDiv = document.createElement("div");
+		newDiv.setAttribute("id", "myDiv")
+		newDiv.style.backgroundColor="orange";	//CSS추가
+		newDiv.style.fontSize="20px";
+		newDiv.style.fontWeight="border";
+		newDiv.innerHTML="새로 생성된 Div입니다. 환영해주세요.";	//컨텐츠추가
+		var p=document.getElementById("parent");		//붙이고 싶은 부모객체 알아오기
+		p.appendChild(newDiv);					//부모에 자식연결
+	}
+	function removeDOM() {
+		//떼어낼자식객체알아오기
+		var myDiv = document.getElementById("myDiv");
+		//자식객체로 부모객체알아오기
+		var parent = myDiv.parentElement;
+		//자식제거
+		parent.removeChild(myDiv);
+	} */
+	function createDIV(){
+		var obj = document.getElementById("parent");
+		var newDiv= document.createElement("div");
+		newDiv.setAttribute("id", "myDiv")
+		newDiv.style.backgroundColor="orange";	//CSS추가
+		newDiv.style.fontSize="20px";
+		newDiv.style.fontWeight="border";
+		newDiv.innerHTML="새로 생성된 Div입니다. 환영해주세요.";	//컨텐츠추가
+		//삭제리스너
+		newDiv.addEventListener("click", function() {
+			var p = this.parentElement;
+			p.removeChild(this);
+			
+		} );
+		obj.appendChild(newDiv);
+	}
+</script>
+</head>
+<body id="parent">
+	<h3>DIV객체를 동적으로 생성, 삽입, 삭제 해보기</h3>
+	<hr>
+	<p>DOM트리에 동적으로 객체를 삽입할 수 있습니다. createElement(), appendChild(), removeChild() 메소드를 이용해서 새로운 객체를 생성, 삽입, 삭제하는 문제입니다.</p>
+	<a href="javascript:createDIV()">DIV생성</a>
+	
+</body>
+</html>

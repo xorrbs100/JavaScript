@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- 
+	document 개요
+		- document는 DOM트리의 최상위 객체이다.
+		- 브라우저는 HTML문서를 로드하기 전에 document객체를 먼저 만든다.
+		- 그러고나서, document객체를 뿌리로 하여 DOM트리를 만든다.
+		- document객체는 HTML문서 전체를 대변하는 객체이다.
+		- document객체는 DOM객체가 아니다.CSS스타일 시트도 없고, style객체도 없다.
+		- document객체는 많은 프로퍼티를 통해 HTML문서의 전반적인 속성을 나타내고
+		- 여러메소드들을 통해 DOM객체의 검색, 생성, 변경등 전반적인 제어를 지원하게 된다.
+		- HTML문서에 만들어진 동일한 이름의 HTML태그들을 배열처럼 접근할 수 있는 컬렉션을 두고 있다.
+			예) <img>태그들은 imges컬렉션으로, 모든<form>태그들은forms컬렉션으로 접근할 수 있다.
+			
+	document객체 접근 방법 2가지
+		
+		방법1 : window.document
+		방법2 : document
+	
+	document객체의 주요 프로퍼티, 컬렉션, 메소드들
+	
+			프로퍼티			설명
+	-------------------------------------------------
+		location			현재 문서의 URL정보를 가진 location 객체의 레퍼런스
+		domain				서버의 도메인 이름
+		referrer			이 HTML문서를 로드한 원래 문서의 URL문자열. 이문서가 처음이면 빈 문자열
+		cookie				쿠키에 대한 레퍼런스
+		lastModified		"MM/DD/YY hhmmss"형식 문서의 최근 수정시간을 알려줌
+		readState			문서의 현재 로딩 상태를 나타내는 문자열
+								- loading
+								- interactive : 문서의 해석(파싱)이 끝난 상태이나 여전히 로딩중인 상태
+								- complete : 문서가 완전히 화면에 출력되면 complete으로 변경된다
+		----------------------------------------------
+		title				문서의 제목 문자열<title>이없으면 빈 문자열
+		body				body객체에 대한 레퍼런스
+		head				head객체에 대한 레퍼런스
+		----------------------------------------------
+		defaultView			문서가 출력된 브라우저 윈도우에 대한 레퍼런스
+		activeElement		문서가 포커스를 받을때 문서내 포커스를 받는 자식객체
+		documentElement		html객체에 대한 레퍼런스
+		URL					현재 문서의 URL
+		----------------------------------------------
+		컬렉션				설명
+	--------------------------------------------------
+		images				문서내의 모든 <img>객체들의 컬렉션
+		links				문서내의 href속성을 가진 모든 링크 객체<a>나<area>들의 컬렉션
+		forms				문서내의 모든 폼<form>객체들의 컬렉션
+	--------------------------------------------------
+		메소드					설명
+	--------------------------------------------------
+		getElementsByTagName()		주어진 태그이름을 가진 모든 태그(DOM객체)의 컬렉션 리턴
+		getElementsByClassName()	주어진 class속성값을 가진 모든 태그(DOM객체)의 컬렉션 리턴
+		getElementsByName()			주어진 name속성값을 가진 모든 태그(DOM객체)의 컬렉션 리턴
+		getElementById()			주어진 ID속성값을 가진 첫번째 DOM객체 리턴
+		----------------------------------------------
+		addEventListener()			document객체에 이벤트 리스너 등록
+		removeEventListener()		document객체에 등록된 이벤트 리스너 제거
+		open()						document에 담긴 콘텐츠를 모두 지우고, 새로운 HTML콘텐츠를 쓸수 있도록 열기
+		close()						document객체에 있는 HTML콘텐츠를 브라우저에 출력하고 더이상 쓰기를 받지 않음
+		creatElement()				HTML태그를 동적으로 생성
+		write()						document에 콘텐츠 삽입, DOM트리에 연결되면 브라우저에 출력됨.
+		writeln()					공백하나더 추가
+		
+		*direction : 텍스트의 방향지정 , rtl(right-to-left) 오른쪽부터 정렬.
+									ltr(left-to-right) 왼쪽부터 정렬.
+		----------------------------------------------			
+ -->
+
+<html>
+<head id="a">
+<meta charset="UTF-8">
+<title>주요프로퍼티</title>
+<script type="text/javascript">
+	var text = " 문서로딩 중일 때 readyState = "+ document.readyState+"\n";
+	//문서가 완전히 로드(출력)되었을때, document의 프로퍼티값을 알아보자.
+	function printProperties() {
+		document.getElementById("input").focus();		//<input>태그에 포커스가 주어짐
+		text+="1:location="+document.location+"\n";
+		text+="2.URL="+document.URL+"\n";
+		text+="3.title="+document.title+"\n";
+		text+="4.head의id="+document.head.id+"\n";
+		text+="5.body의id="+document.body.id+"\n";
+		text+="6.body의 color = "+document.body.style.color+"\n";
+		text+="7.domain= "+document.domain+"\n";
+		text+="8.lastModified= "+document.lastModified+"\n";
+		text+="9.defaultView="+document.defaultView+"\n";	//문서가 출력된 브라우저 윈도우에 대한 레퍼런스
+		text+="10.문서가 로드완료된 후의 readyState"+document.readyState+"\n";
+		text+="11.activeElement의 태그이름= "+document.activeElemente.tagName+"\n";		//문서내 포커스를 받은 자식개체의 태그이름
+		text+="12.activeElement의 value="+document.activeElement+"\n";
+		text+="13. documentElement의 태그이름="+document.documentElement+"\n"		//html객체에 대한 레퍼런스
+		
+		//필요하거나 궁금한것 계속 넣어서 확인
+		alert(text);
+		
+	}
+
+</script>
+</head>
+<body id="b" style="background-color: yellow; color: blue; direction: rtl;" onload="printProperties() "> <!-- onload 웹페이지 로딩이 완료되면 함수를 호출한다 -->
+	<h3>document의 주요 프로퍼티</h3>
+	<hr>
+	<a href="http://www.naver.com">네이버 홈페이지</a>
+	<div>이곳은 div영역입니다</div>
+	<input id="input" type="text" value="여기 포커스가 있나요?">
+	
+</body>
+</html>

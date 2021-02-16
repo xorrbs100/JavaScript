@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>div활용 색상표 만들기</title>
+<style type="text/css">
+	div{
+		display: inline-block;
+		width: 60px;
+		padding: 10px;
+		
+	}
+</style>
+</head>
+<body>
+	<h3>17개 색상출력</h3>
+	<hr>
+	<script type="text/javascript">
+		var colorNames=["maroon","red","orange","yellow","olive","purple","fuchsia",
+			"white","lime","green","navy","blue","aqua","teal","black","silver","gray"];
+		for(i=0; i<colorNames.length;i++){
+			var str= "<div style='background-color:";
+			str += colorNames[i];
+			str += "'>"+colorNames[i]+"</div>";
+			
+			document.write(str);
+		}
+	</script>
+	
+</body>
+</html>

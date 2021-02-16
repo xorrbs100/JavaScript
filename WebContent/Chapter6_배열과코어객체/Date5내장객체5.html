@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//날짜 시간 객체를 생성
+	var date = new Date();
+	//설정
+	date.setYear(2020);
+	date.setMonth(10);	//11월
+	date.setDate(10);
+	date.setHours(9);
+	date.setMinutes(30);
+	date.setSeconds(23);
+	
+	//출력
+	document.write(date.getYear()+1900+"년<br>");
+	document.write(date.getMonth()+1+"월<br>");
+	document.write(date.getDate()+"일<br>");
+	document.write(date.getHours()+"시<br>");
+	document.write(date.getMinutes()+"분<br>");
+	document.write(date.getSeconds()+"초<br>");
+	
+	//형식으로 출력
+	document.write("기본형식 : &nbsp;"+date+"<br><br>");
+	document.write("toUTCString()형식 : "+date.toUTCString()+"<br>");
+	
+	
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

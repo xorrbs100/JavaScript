@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- 
+*세번째 방식
+(리스너 등록)
+. aaddEventListener(이벤트이름, 리스너함수, [useCapture]
+	- 이벤트이름 : 이벤트 타입을 나타내는 문자열 -click, load, keydown등 (on을 뺀다)
+	- 리스너함수 : 이벤트 리스너로 등록할 함수이름 - 괄호()생략된다.
+	- useCaptuer : true이면 이벤트 흐름중 캡쳐 단계에서 실행될 리스너(함수)등록
+					false이면 버블 단계에서 실행될 리스너 등록.
+					생략가능하며 디폴트는false
+					
+	* 동일한 이벤트 리스너에 여러함수를 중복하여 등록할 수 있다. 그래서 메소드명에 add를 붙인것이다.
+	* 기존에 사용하던 attachEvent()는 폐기되고 addEventListener를 권장함
+	
+(리스너제거)
+	.removeListener()
+	
+
+ -->
+
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	var p;
+	function init() {	//문서가 완전히 로드 완료되었을때 호출
+		p = document.getElementById("p");
+		//이벤트리스너등록
+		p.addEventListener("mouseover", over);	//동일한 이벤트에 여러개의 리스너를 등록할 수 있따.
+		p.addEventListener("mouseover", size);
+		p.addEventListener("mouseover", fontstyle);
+		
+		p.addEventListener("mouseout", out);
+	
+	}
+	//리스너함수정의
+	function over() {
+		p.style.backgroundColor="orchid";
+	}
+	function size() {
+		p.style.fontSize="20px";
+	}
+	function fontstyle() {
+		p.style.fontStyle="italic";
+	}
+	function out() {
+		p.style.backgroundColor="white";
+	}
+	//리스너 제거
+	function remove() {
+		p.removeEventListener("mouseover",over);
+		p.removeEventListener("mouseover",size);
+		p.removeEventListener("mouseover",fontstyle);
+		p.removeEventListener("mouseout",out);
+	}
+</script>
+</head>
+<body onload="init()">
+	<h3>addEventListener()를 이용한 리스너등록</h3>
+	<button type="button" id="r" onclick="remove()">이벤트제거</button>
+	<hr>
+	<p id="p">마우스를 올리면 배경색을 orchid색으로 변경하기</p>
+	
+</body>
+</html>

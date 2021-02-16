@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+   <h3>텍스트가 자동회전하며, 마우스를 클릭하면 중단합니다.</h3>
+   <hr>
+   <div>
+      <span id='span' style="background-color: yellow">자동회전</span>
+   </div>
+   
+   <script type="text/javascript">
+      var span = document.getElementById("span");
+      var timerID = setInterval("doRotate()",200);   //0.2초 간격으로 doRotate()호출
+      
+      span.onclick = function (e) {
+         clearInterval(timerID);         //반복호출을 중단
+      }
+      function doRotate() {
+         var str = span.innerHTML;
+         var firstChar = str.substr(0,1);            //첫번째 문자열만 추축해서 저장
+         var remainStr = str.substr(1,str.length-1);      //str두번째 글짜부터 끝까지
+         
+         str = remainStr + firstChar;
+         span.innerHTML = str;
+      }
+   </script>
+</body>
+</html>

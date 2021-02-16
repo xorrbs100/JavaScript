@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- 
+	페이지를 실행할 때마다 초가 짝수이면 violet, 홀수이면 lightskyblue로 배경화면이 바뀌게 설정
+	
+	document.body.style.backgroundColor=""
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var now=new Date();
+	if(now.getSeconds()%2==0){
+		document.write(now.getHours()+"시 ");
+		document.write(now.getMinutes()+"분 ");
+		document.write(now.getSeconds()+"초 ");
+		document.body.style.backgroundColor="violet";
+	}else{
+		document.write(now.getHours()+"시 ");
+		document.write(now.getMinutes()+"분 ");
+		document.write(now.getSeconds()+"초 ");
+		document.body.style.backgroundColor="skyblue";
+	}
+</script>
+</head>
+<body>
+	<p>초</p>
+</body>
+</html>

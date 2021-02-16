@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- 
+	형변환
+		. 자바스크립트에서는 자동으로 형변환이 되어 개발자에게 문제가 되곤 한다.
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	//1.더하기연산 : 숫자+숫자, 숫자+문자, 문자+숫자+숫자, 숫자+숫자+문자 >> 결합, 연산
+	//	피연산자중 문자가 있으면 문자형으로 결합된다.
+	document.write("<h3>자바스크립스트의 자동형변환</h3><hr>");	
+	
+	document.write('10'+'5'+"<br>");//문자+문자=결합
+	document.write('10'+5+"<br>"); 	//문자+숫자=결합
+	document.write(10+5+"<br>");	//숫자+숫자=연산
+	
+	document.write('가'+10+5+"<br>");//문자+숫자+숫자=결합
+	document.write(10+5+'가'+"<br>");//숫자+숫자+문자=연산+결합
+	
+	document.write(10+3+true+"<br>");//true는1, false는 0
+	
+	//2. 더하기를 제외한 산술연산은 일반적으로 피연산자를 모두 숫자로 형변환을 해서 연산을 수행한다.
+	document.write('10'-'5'+"<br>");
+	document.write('10'-5+"<br>");
+	document.write('10'*'5'+"<br>");
+	document.write('10'/'5'+"<br>");
+	document.write('10'%'3'+"<br>");
+	
+	document.write('10'*false+"<br>");
+	
+	//3. 이런경우..
+	a=prompt("사칙연산 a값을 입력해주세요>>","numbering");	//문자로 받는다
+	b=parseInt(prompt("사칙연산 b값을 입력해주세요>>","numbering"));	//숫자로형변환
+	
+	document.write(a+b+"<br>");//문자+숫자=문자
+	
+	c=new Number(prompt("사칙연산c값을 입력해주세요>>","numbering"));//Number()객체로 생성
+	document.write(b+c+"<br>");
+	
+
+</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var width=1;
+	function down(obj) {
+		obj.style.fontStyle="italic";
+	}
+	function up(obj) {
+		obj.style.fontStyle="normal";
+	}
+	function over(obj) {
+		obj.style.borderColor="blue";
+	}
+	function out(obj) {
+		obj.style.borderColor="red"
+	}
+	function wheel(e,obj) {		//이벤트와 DOM객체를 받음
+		if(e.wheelDelta<0){
+			width --;
+			if(width<0){
+				width=0;
+			}
+		}else{
+			width ++;
+		}
+		obj.style.borderStyle="ridge";
+		obj.style.borderWidth=width+"px";
+	}
+</script>
+</head>
+<body>
+	<h3>마우스관련 이벤트 리스너</h3>
+	<hr>
+	<div>
+		<span
+		onmousedown="down(this)"
+		onmouseup="up(this)"
+		onmouseover="over(this)"
+		onmouseout="out(this)"
+		onwheel="wheel(event,this)"
+		>이벤트</span>가 발생합니다.
+		
+	</div>
+	
+
+	
+</body>
+</html>

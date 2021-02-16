@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--  
+	1. 마우스 핸들링
+		. 웹페이지 개발에 가장 많이 활용되는 마우스 이벤트다.
+		. 마우스 이벤트 객체에는 포인트위치, 클릭버튼 값등의 정보가 담긴다.
+		
+			프로퍼티					설명
+		---------------------------------------------------------
+			x,y						마우스좌표값
+			clientX,clientY			브라우저 윈도우의 문서출력 영역 내에서의 마우스 좌표
+			screenX,screenY			스크린을 기준으로 한 마우스 좌표
+			offsetX,offsetY			타깃 객체내에서의 마우스 좌표
+		----------------------------------------------------------
+			button					눌러진 마우스 버튼
+									0 : 아무런 버튼도 눌러지지 않은 상태
+									1 : 왼쪽 버튼이 눌러진 상태
+									2 : 오른쪽 버튼이 눌러진 상태
+									3 : 왼쪽, 오른쪽 모두 눌러진 상태
+									4 : 중간버튼이 눌러진 상태
+		---------------------------------------------------------
+			wheelDelta				마우스휠 구른 방향
+									양수 : 위쪽으로 굴린경우 (120)
+									음수 : 아래쪽으로 굴린 경우 (-120)
+	
+	2. 마우스 관련 리스너
+			
+			. onclick		: 한번클릭
+			. ondblclick	: 두번클릭
+			. onmousedown	: 누르는 순간
+			. onmouseup		: 떼는순간
+			. onmouseover	: 올라오는 순간
+			. onmouseout	: 벗어나는 순간
+			. onwheel		: 휠이 구르는 동안 계속 호출
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>마우스관련 이벤트를 활용한 계산기</title>
+<script type="text/javascript">
+	
+	function calculator() {
+		var exp=document.getElementById("exp");
+		var result=document.getElementById("result");
+		
+		result.value=eval(exp.value);
+		
+		
+	}
+	function wheel() {
+		var img = document.getElementById("img");
+		img.onwheel=function(e){
+			if(e.wheelDelta>0){
+				img.style.width="200px";
+				img.style.height="200px";
+				alert(e.wheelDelta);
+			}else {
+				img.style.width="100px";
+				img.style.height="100px";
+				alert(e.wheelDelta);
+			}
+		}
+	}
+	
+</script>
+</head>
+<body>
+	<h3>onclick, 계산기 만들기</h3>
+	<hr>
+	계산하고자 하는 수식을 입력하고 계산 버튼을 눌러보세요.
+	<form action="">
+		식 <input type="text" id="exp"><br>
+		값 <input type="text" id="result">
+		<input type="button" value="계산" onclick="calculator()">
+	</form>
+	<br>
+	<img alt="" src="../img/스폰지밥.png" width="100" height="100" onwheel="wheel()" id="img">
+</body>
+</html>

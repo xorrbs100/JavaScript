@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--  
+	1. 이벤트객체
+		: 이벤트가 발생하면.... 브라우저는 ...
+			1) 이벤트에 대한 다양한 정보를 담은 이벤트 객체생성 > 이벤트객체
+			2) 만들엉진 이벤트 객체를 리스너에게 전달
+			3) 이벤트처리
+			4) 객체소멸
+		: 이벤트 객체의 처리는 한개씩 이루어진다. 리스너 실행중에는 오직 한개의 이벤트만 존재
+	
+	2. 리스너가 이벤트 객체를 전달받는 방법 3가지
+			방법1 : 매개변수를 통해 객체를 전달받는 방법
+			방법2 : 익명함수일때 이름은 없지만 매개변수 e를 통해 전달받는다.
+			방법3 : HTML태그리스너 일때, 이벤트 객체는 event라는 객체명으로 전달된다.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+	<h3>어떤 이벤트인지 알아봅시다.</h3>
+	<hr>
+	<img id="img" src="../img/스폰지밥.png"><br>
+	<button type="button" onclick="f(event)">버튼을 클릭해 보세요</button>
+	<p id="p">마우스를 올려보세요</p>
+	<script type="text/javascript">
+	//버튼의 onclick	
+		function f(e) {
+			alert(e.type);		//e.type: 발생한 이벤트의 종류
+			
+		}
+	//태그의 mouseover이벤트
+	var p= document.getElementById("p");
+	p.onmouseover=f;
+	//img에 mouseout이벤트
+	var img = document.getElementById("img");
+	img.onmouseout=function(e){
+		alert(e.type);
+	}
+	
+	</script>
+</body>
+</html>

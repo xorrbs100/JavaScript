@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--  
+	체크박스
+		. checkbox객체는 radio객체들과 달리 그룹을 형성하지 않기 때문에
+		. name속성(프로퍼티)가 모두 다르다.
+		
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>checkBox</title>
+<script type="text/javascript">
+	var sum=0;
+	function calc(obj) {
+		if(obj.checked){
+			sum+=parseInt(obj.value);
+		}else{
+			sum-=parseInt(obj.value);
+		}
+		//결과출력
+		document.getElementById("sumtext").value=sum;
+		
+	}	
+</script>
+</head>
+<body>
+	<h3>물품을 선택하면 금액이 자동 계산됩니다.</h3>
+	<hr>
+	<form action="">
+		<input type="checkbox" name="hat" value="10000" onclick="calc(this)">모자 1만원
+		<input type="checkbox" name="shose" value="30000" onclick="calc(this)">구두 3만원
+		<input type="checkbox" name="bag" value="80000" onclick="calc(this)">명품가방 8만원
+		<br>
+		지불하실 금액 <input type="text" id="sumtext" value="0">
+	</form>
+</body>
+</html>

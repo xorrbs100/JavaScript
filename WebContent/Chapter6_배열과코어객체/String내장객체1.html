@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- 
+	String내장객체
+		: 가장많이 사용되는 데이터로 곡 알아야 한다.
+		: 문자열 상수들과 마찬가지로 String 객체들도 내부적으로 값은 변경할 수 없다.
+		
+		. 생성 : new String(문자열), var 변수 = "문자열", 
+		. 특징
+				- 일단 생성된 내부의 문자열은 수정이 불가능하다.
+				- 문자열의 길이 length프로퍼티를 활용한다.
+		. 주요메소드
+			- charAt(index) : 인덱스에 있는 문자를 문자열로 리턴한다.
+			- charCodeAt(index) : 인덱스에 있는 문자의 16비트 유니코드값을 리턴
+			- concat(s1,s2,,,) : 현재 문자열 뒤에 s1,s2,, 순서대로 연결해서 새로운 문자열을 리턴
+			- indexOf('s') : s문자열이 처음으로 나타나는 인덱스를 리턴
+			- replace(s1,s2) : 문자열 s1을 s2로 대체
+			- slice(s1, s3) : s1~s2(s3앞까지) 문자열을 복사해서 리턴, s3가 생략되면 끝까지 리턴
+			- split("구분자") : 문자열을 구분자로 분리하여 문자열 배열을 만들어 리턴
+			- substr(s1,n) : 인덱스s1에서부터 n개문자 수만큼 새로운 문자열 리턴, n이 생략되면 끝까지 리턴
+			- substring(s1,s2) : s1과 s2사이의 문자열 리턴 
+			- trim() : 문자열의 앞뒤 공백 문자(빈칸, 탭, 엔터키)를 제거한 새로운 문자열 리턴
+			- toupperCase() : 대문자로
+			- toLowerCase() : 소문자로
+ -->
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>String 객체의 메소드 활용</h3>
+	<hr>
+	<script type="text/javascript">
+	
+		//문자열 객체를 만드는 두가지방법
+		//1. new String()
+		var a = new String("Boys and Girls");
+		//2. 문자열 상수형 표현
+		var b = "!!";
+		//출력
+		document.write("a: "+a+"<br>");
+		document.write(typeof(a)+"<br>");
+		document.write(typeof(b)+"<br>");
+		//추출,결합
+		document.write("a객체의 0번 인덱스 문자열 : "+a.charAt(0)+"<br>");
+		document.write("a객체와 b문자열 결합 : "+a.concat(b,"입니다") +"<br><hr>");
+		
+		//특정 문자의 인덱스 조회
+		document.write("a객체에서 s문자열 인덱스 ? "+a.indexOf("s")+"<br>");
+		document.write("a객체에서 and문자열 인덱스? "+a.indexOf("And")+"<br>"); //없다면 -1반환
+		
+		document.write("a객체에서 5~8앞까지 문자열 ? "+a.slice(5,8)+"<br>");
+		document.write("a객체에서 5부터 3개문자열 ? "+a.substr(5,3)+"<br>");
+		
+		document.write("a객체의 소문자를 대문자로 : "+a.toLowerCase()+"<br>");
+		document.write("a객체의 and를 or로 변경 : " +a.replace("and","or")+"<br><hr>")
+		
+		document.write("     JavaScript ".trim()+"<br><hr>");//결과는? 공백제거
+		
+		var sub= a.split(" ");	//a객체를 공백으로 분리하고, 아래 for문에서 출력
+		document.write("a를 빈칸으로 분리<br>");
+		for(var i =0; i<sub.length;i++){
+		document.write("sub"+i+"="+sub[i]+"<br>");			
+		}
+		document.write("<hr>String메소드를 실행후 a와 b변함없음<br>");//원본 문자열 변경되지 않음
+		document.write("a : "+a+"<br>");
+		document.write("b; "+b+"<br>");
+		
+		
+	</script>
+</body>
+</html>

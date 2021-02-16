@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+	table {
+	width: 300px;height: 300px; background: lightgray;
+	text-align: center;
+	border-collapse: collapse;
+	font-size: 12px;
+	
+}
+	#h{
+		background:blue;
+		color: white;
+		
+	}
+	caption {
+	font-size: 18px;
+	
+}
+</style>
+</head>
+<body>
+	<h3>이차원 배열</h3>
+	<hr>
+	<script type="text/javascript">
+		//방법1
+		var studentArr=new Array(['강민성','컴공',88,76],['김정아','수학',70,83],['신은주','행정',92,95],['조우진','건축',89,97]);
+		
+		//방법2
+		var student = new Array(
+				Array('강민성','컴공',88,76),
+				Array('김정아','수학',70,83),
+				Array('신은주','행정',92,95),
+				Array('조우진','건축',89,97)
+				);
+		//테이블생성
+		document.write("<table border=1>")
+		document.write("<caption>성적 테이블 </caption>")
+		document.write("<tr id='h'><td>이름</td><td>전공</td><td>중간</td><td>기말</td></tr>")
+		for(i=0;i<student.length;i++){
+			document.write("<tr>")
+			for(j=0;j<student[i].length;j++){
+				document.write("<td>"+student[i][j]+"</td>");
+			}
+			document.write("</tr>")
+			
+		}
+		document.write("</table>")
+		
+		
+	</script>
+</body>
+</html>

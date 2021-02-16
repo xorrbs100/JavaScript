@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM객체의 이벤트리스너 프로퍼티에 리스너 등록</title>
+<script type="text/javascript">
+	var img;		//전역변수
+	function init() {
+		img=document.getElementById("img");
+		//이벤트 등록
+		img.onmouseover=over;		//over함수호출
+		img.onmouseout=out;			//out함수호출
+	}
+	//over함수
+	function over() {
+		img.style.width="120px";
+		img.style.height="120px";
+	}
+	//out함수
+	function out() {
+		img.style.width="100px";
+		img.style.height=="100px";
+	}
+
+
+</script>
+</head>
+<body>
+	<h3>DOM객체의 이벤트리스너 프로퍼티에 함수등록해보기</h3>
+	<hr>
+	<img alt="" src="../img/스폰지밥.png" id="img" width="100px" height="100px"
+		onload="init()"
+	>
+	문서나 이미지의 로딩이 완료된 후 마우스를 올리면 이미지가 커집니다.
+	
+</body>
+</html>
